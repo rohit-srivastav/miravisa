@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=1280">
+    <title>MiraVisa — Immigration made simple</title>
+    <meta name="description" content="Step-by-step guidance, smart checks, and peace of mind without lawyer prices.">
+    <meta name="theme-color" content="#2563eb">
+    <meta property="og:title" content="MiraVisa — Immigration made simple">
+    <meta property="og:description" content="Step-by-step guidance, smart checks, and peace of mind without lawyer prices.">
+    <meta property="og:type" content="website">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&display=swap" rel="stylesheet">
+    <style>
+:root{--brand:#2563eb;--brand-600:#1d4ed8;--brand-faint:#eff6ff;--text:#0f172a;--muted:#475569;--muted-soft:#64748b;--border:#e5e7eb;--bg:#f8fafc;--bg-alt:#f1f5f9;--white:#fff;--success:#10b981;--shadow-sm:0 1px 2px rgba(15,23,42,.06);--shadow-md:0 4px 12px rgba(15,23,42,.08);--shadow-lg:0 8px 30px rgba(15,23,42,.1);--dark:#0f172a;--h1:clamp(42px,5vw,60px);--h2:clamp(28px,3vw,36px);--h3:20px;--body:16px;--lead:18px}
+html{scroll-behavior:smooth;font-feature-settings:"case","calt","ss01","ss02"}
+body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-optical-sizing:auto;color:var(--text);background:var(--bg)}
+.tnum{font-variant-numeric:tabular-nums}
+.heading-hero{font-size:var(--h1);font-weight:700;line-height:1.05;letter-spacing:-.015em}
+.title-2{font-size:var(--h2);font-weight:700;line-height:1.15;letter-spacing:-.01em}
+@media (prefers-reduced-motion:no-preference){
+  .hover-lift{transition:transform .18s cubic-bezier(.4,0,.2,1),box-shadow .18s cubic-bezier(.4,0,.2,1)}
+  .hover-lift:hover{transform:scale(1.015);box-shadow:var(--shadow-lg)}
+  .pressable:active{transform:scale(.99)}
+}
+.focus-ring:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(37,99,235,.35),0 0 0 1px #fff inset;border-radius:12px}
+.container-xl{max-width:1200px;margin:0 auto;padding:0 1.5rem}
+.section-pad{padding:72px 0}
+.card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:1.5rem;box-shadow:var(--shadow-md)}
+.btn{height:42px;min-width:120px;padding:0 1.25rem;display:inline-flex;align-items:center;justify-content:center;border-radius:10px;font-size:.875rem;line-height:1;font-weight:500}
+.btn-primary{background:var(--brand);color:#fff}.btn-primary:hover{background:var(--brand-600)}
+.btn-secondary{background:#fff;border:1px solid var(--border);color:var(--text)}
+.link{text-decoration:underline;text-decoration-thickness:.08em;text-underline-offset:3px}
+.link:hover{opacity:.75}
+.section-head{margin-bottom:2.75rem;text-align:center}
+.divider{height:1px;background:linear-gradient(90deg,transparent,#e5e7eb,transparent)}
+.pill{height:40px;width:40px;border-radius:9999px;display:flex;align-items:center;justify-content:center}
+details.faq{border-top:1px solid var(--border);transition:border-color .2s ease}
+details.faq:first-child{border-top:0}
+details.faq summary{cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:0 1.5rem;height:72px}
+details.faq summary::-webkit-details-marker{display:none}
+details.faq summary svg{transition:transform .2s ease,stroke .2s ease}
+details.faq[open]{border-color:var(--brand)}
+details.faq[open] summary svg{transform:rotate(90deg);stroke:var(--brand)}
+.faq-content{overflow:hidden;max-height:0;opacity:0;padding-top:0;transition:max-height .25s ease,opacity .22s ease,padding .22s ease}
+details[open] .faq-content{max-height:240px;opacity:1;padding-top:.75rem}
+nav a{letter-spacing:.02em;font-weight:500}
+.skip{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+.skip:focus{position:static;width:auto;height:auto;padding:.5rem .75rem;background:#fff;border:1px solid var(--border);border-radius:8px;margin:8px}
+.progress-animated{overflow:hidden}
+.progress-animated .bar{height:100%;width:100%;transform-origin:left;transform:scaleX(0);will-change:transform;animation:mv-fill .9s cubic-bezier(.22,.61,.36,1) forwards}
+@keyframes mv-fill{to{transform:scaleX(var(--p))}}
+@media (max-width:1199px){body::before{content:"Desktop preview only";position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:#0f172a;color:#fff;z-index:9999;font:600 18px/1 system-ui}}
+.qc{color:#d4af37;font-weight:700;font-size:1.2rem;line-height:1;font-family:Georgia,"Times New Roman",Times,serif!important;display:inline-block;vertical-align:-.12em}
+    </style>
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <!-- HEADER -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-[var(--border)]">
+      <div class="container-xl h-[72px] flex items-center justify-between">
+
+        <!-- NAV -->
+        <a class="flex items-center gap-3 focus-ring" aria-label="MiraVisa Home" href="#home">
+          <span class="h-8 w-8 rounded-[12px] bg-[var(--brand)] inline-flex items-center justify-center text-white font-bold">M</span>
+          <span class="text-xl font-bold tracking-tight">MiraVisa</span>
+        </a>
+        <nav class="flex items-center gap-8 text-sm" aria-label="Primary navigation">
+          <a class="py-2 hover:opacity-75" href="#how">How it works</a>
+          <a class="py-2 hover:opacity-75" href="#pricing">Pricing</a>
+          <a class="py-2 hover:opacity-75" href="#testimonials">Stories</a>
+          <a class="py-2 hover:opacity-75" href="#comparison">Compare</a>
+          <a class="py-2 hover:opacity-75" href="#faq">FAQ</a>
+          <a class="py-2 hover:opacity-75" href="#support">Support</a>
+        </nav>
+        <div class="flex items-center gap-3">
+          <a class="btn btn-secondary hover-lift pressable" href="#signin">Sign in</a>
+          <a class="btn btn-primary hover-lift pressable" href="#start">Start free</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- HERO -->
+      <section id="home" class="relative overflow-hidden bg-gradient-to-b from-slate-50/80 via-white to-white">
+        <div class="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
+          <div class="absolute right-[-10%] top-[-10%] h-[680px] w-[680px] rounded-full bg-[radial-gradient(circle,rgba(37,99,235,0.32),transparent_70%)] blur-[110px]"></div>
+          <div class="absolute left-[-18%] bottom-[-22%] h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle,rgba(147,197,253,0.18),transparent_70%)] blur-[90px]"></div>
+          <div class="absolute left-[14%] top-[12%] h-[260px] w-[260px] rounded-full bg-[radial-gradient(circle,rgba(59,130,246,0.18),transparent_70%)] blur-[80px]"></div>
+        </div>
+
+        <div class="container-xl section-pad grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <!-- Hero headline -->
+            <h1 class="mb-8 text-6xl font-bold leading-tight tracking-tight bg-gradient-to-r from-slate-900 via-slate-800 to-blue-700 bg-clip-text text-transparent">Immigration made simple.</h1>
+
+            <!-- Hero subhead -->
+            <p class="text-base text-[var(--muted)] mb-5 max-w-[560px]">Step-by-step guidance, smart checks, and peace of mind without lawyer prices.</p>
+
+            <!-- Hero CTAs -->
+            <div class="mt-5 flex items-center gap-4">
+              <a class="btn btn-primary hover-lift pressable" href="#start">Start free</a>
+              <a class="text-sm link hover:opacity-80 transition" href="#how">See how it works</a>
+            </div>
+
+            <!-- Hero trust badges -->
+            <div class="mt-6 space-y-3">
+              <div><span class="inline-block rounded-full px-4 py-1.5 text-sm bg-slate-100">Trusted by 15,000+ applicants</span></div>
+              <div class="flex items-center gap-3">
+                <span class="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm bg-blue-50 text-blue-700">4.9 rating</span>
+                <span class="inline-flex items-center rounded-full px-4 py-2 text-sm bg-green-50 text-green-700">98% accuracy</span>
+                <span class="inline-flex items-center rounded-full px-4 py-2 text-sm bg-orange-50 text-orange-600">24/7 self-service</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Case widget -->
+          <figure class="h-full">
+            <div class="card hover-lift h-full flex flex-col p-6 rounded-2xl border-2 border-transparent [background:linear-gradient(white,white)_padding-box, linear-gradient(135deg,#3b82f6cc,#2563ebcc)_border-box] bg-white/70 backdrop-blur-sm shadow-sm hover:shadow-lg transition-shadow ring-1 ring-black/5">
+
+              <!-- Case header row -->
+              <div class="flex items-center gap-3 mb-2">
+                <span class="w-9 h-9 flex items-center justify-center rounded-full bg-gray-50 shadow-sm">
+                  <img class="h-5 w-7 rounded-[2px] object-cover" alt="Australia" src="https://flagcdn.com/au.svg">
+                </span>
+                <span class="text-[15px] font-semibold text-slate-800 whitespace-nowrap">Citizenship By Conferral</span>
+                <div class="h-3 flex-1 rounded-full bg-gray-100 border border-[var(--border)] overflow-hidden progress-animated">
+                  <div class="bar h-full rounded-full bg-[var(--brand)]" style="--p:0.80"></div>
+                </div>
+                <span class="text-[11px] font-medium text-slate-600 tnum whitespace-nowrap">80%</span>
+              </div>
+
+              <div class="h-px my-2 bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
+
+              <!-- Case progress list -->
+              <div class="mt-3 mb-1 text-[11px] font-semibold text-slate-500 tracking-wide">CASE PROGRESS</div>
+              <ul class="mt-1.5 space-y-2 text-[13px]" role="list">
+                <li class="flex items-center gap-2.5"><span class="pill bg-green-100 text-green-700"><i class="w-4 h-4" data-lucide="id-card"></i></span>Identity and eligibility checks passed</li>
+                <li class="flex items-center gap-2.5"><span class="pill bg-purple-100 text-purple-700"><i class="w-4 h-4" data-lucide="scan-text"></i></span>Review of evidence pack completed</li>
+                <li class="flex items-center gap-2.5 font-medium text-slate-800"><span class="pill bg-amber-100 text-amber-700"><i class="w-4 h-4" data-lucide="arrow-right"></i></span>Next step: Submit application on immi portal</li>
+                <li class="flex items-center gap-2.5 opacity-70"><span class="pill bg-gray-100 text-gray-500"><i class="w-4 h-4" data-lucide="book-open-check"></i></span>Prepare for citizenship test</li>
+              </ul>
+
+              <div class="h-px my-3 bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
+
+              <!-- Case insights chips -->
+              <div>
+                <h3 class="text-[11px] font-semibold text-slate-500 uppercase tracking-wide mb-2">Insights</h3>
+                <div class="grid gap-2 text-[11px] leading-tight grid-cols-1 sm:grid-cols-[max-content,1fr]">
+                  <span class="inline-flex items-center gap-1.5 rounded-full bg-blue-50 text-blue-700 px-2 py-0.5 ring-1 ring-blue-200">
+                    <i class="w-3 h-3" data-lucide="calendar-check"></i>
+                    <span>Residency <span class="tnum font-medium">On Track</span> <span class="opacity-70">(1,340 / 1,460 days)</span></span>
+                  </span>
+                  <span class="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 text-emerald-700 px-2 py-0.5 ring-1 ring-emerald-200">
+                    <i class="w-3 h-3" data-lucide="activity"></i>
+                    <span>Application Strength <span class="font-medium">High</span></span>
+                  </span>
+                  <span class="inline-flex items-center gap-1.5 rounded-full bg-blue-50 text-blue-700 px-2 py-0.5 ring-1 ring-blue-200">
+                    <i class="w-3 h-3" data-lucide="sparkles"></i>
+                    <span>Timeline <span class="tnum font-medium">9–11m</span> <span class="opacity-70">(based on similar cases)</span></span>
+                  </span>
+                  <span class="inline-flex items-center gap-1.5 rounded-full bg-rose-50 text-rose-700 px-2 py-0.5 ring-1 ring-rose-200">
+                    <i class="w-3 h-3" data-lucide="shield-alert"></i>
+                    <span>Alerts <span class="font-medium">Potential refusal trigger found</span></span>
+                  </span>
+                  <span class="inline-flex items-center gap-1.5 rounded-full bg-amber-50 text-amber-700 px-2 py-0.5 ring-1 ring-amber-200 sm:col-span-2">
+                    <i class="w-3 h-3" data-lucide="bell"></i>
+                    <span>Reminder Overseas Police Clearance (US) likely required</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </figure>
+        </div>
+      </section>
+
+      <div class="divider"></div>
+
+      <!-- HOW IT WORKS -->
+      <section id="how" class="bg-white">
+        <div class="container-xl section-pad text-center">
+          <header class="section-head"><h2 class="title-2">How MiraVisa works</h2></header>
+          <div class="grid gap-8 md:grid-cols-3 text-left">
+            <!-- Step 1 card -->
+            <article class="card hover-lift h-full">
+              <div class="flex items-center gap-3 mb-4"><span class="w-10 h-10 rounded-full bg-blue-50 text-blue-700 inline-flex items-center justify-center font-semibold">1</span><h3 class="text-[var(--h3)] font-semibold">Guided application</h3></div>
+              <p class="text-sm text-[var(--muted)]">Complex forms become simple, step-by-step questions, supported by smart checklists that keep you on track.</p>
+            </article>
+
+            <!-- Step 2 card -->
+            <article class="card hover-lift h-full">
+              <div class="flex items-center gap-3 mb-4"><span class="w-10 h-10 rounded-full bg-blue-50 text-blue-700 inline-flex items-center justify-center font-semibold">2</span><h3 class="text-[var(--h3)] font-semibold">Smart document checks</h3></div>
+              <p class="text-sm text-[var(--muted)]">Expert AI flags missing items and weak evidence, running consistency checks and confidence scoring before you continue.</p>
+            </article>
+
+            <!-- Step 3 card -->
+            <article class="card hover-lift h-full">
+              <div class="flex items-center gap-3 mb-4"><span class="w-10 h-10 rounded-full bg-blue-50 text-blue-700 inline-flex items-center justify-center font-semibold">3</span><h3 class="text-[var(--h3)] font-semibold">File with confidence</h3></div>
+              <p class="text-sm text-[var(--muted)]">Receive a clear case summary and risk alerts aligned to official guidance.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <div class="divider"></div>
+
+      <!-- FEATURES: Built for peace of mind -->
+      <section id="features" class="bg-slate-50">
+        <div class="container-xl section-pad text-center">
+          <header class="section-head"><h2 class="title-2">Built for peace of mind</h2></header>
+          <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4 text-left">
+
+            <!-- Guided form builder -->
+            <article class="card hover-lift h-full p-6 transition-shadow hover:shadow-md">
+              <div class="flex items-center gap-3 mb-2"><div class="p-3 rounded-xl bg-blue-50"><i class="w-6 h-6 text-blue-600" data-lucide="file-text"></i></div><h3 class="text-[var(--h3)] font-semibold">Guided form builder</h3></div>
+              <p class="pl-2 text-sm text-[var(--muted)] leading-relaxed">No jargon, just clear, adaptive questions that match your path.</p>
+            </article>
+
+            <!-- Dynamic checklist -->
+            <article class="card hover-lift h-full p-6 transition-shadow hover:shadow-md">
+              <div class="flex items-center gap-3 mb-2"><div class="p-3 rounded-xl bg-green-50"><i class="w-6 h-6 text-green-600" data-lucide="clipboard-check"></i></div><h3 class="text-[var(--h3)] font-semibold">Dynamic checklist</h3></div>
+              <p class="pl-2 text-sm text-[var(--muted)] leading-relaxed">Know exactly what to prepare, with progress updates at a glance.</p>
+            </article>
+
+            <!-- Expert AI review -->
+            <article class="card hover-lift h-full p-6 transition-shadow hover:shadow-md">
+              <div class="flex items-center gap-3 mb-2"><div class="p-3 rounded-xl bg-purple-50"><i class="w-6 h-6 text-purple-600" data-lucide="shield-check"></i></div><h3 class="text-[var(--h3)] font-semibold">Expert AI review</h3></div>
+              <p class="pl-2 text-sm text-[var(--muted)] leading-relaxed">Consistency checks and confidence scores to flag risks early.</p>
+            </article>
+
+            <!-- Interview prep tools -->
+            <article class="card hover-lift h-full p-6 transition-shadow hover:shadow-md">
+              <div class="flex items-center gap-3 mb-2"><div class="p-3 rounded-xl bg-yellow-50"><i class="w-6 h-6 text-yellow-600" data-lucide="users-round"></i></div><h3 class="text-[var(--h3)] font-semibold">Interview prep tools</h3></div>
+              <p class="pl-2 text-sm text-[var(--muted)] leading-relaxed">Mock prompts and practice sessions to help you feel ready on the big day.</p>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <div class="divider"></div>
+
+      <!-- TESTIMONIALS -->
+      <section id="testimonials" class="bg-white">
+        <div class="container-xl section-pad text-center">
+          <header class="section-head"><h2 class="title-2">Hear from our customers</h2></header>
+          <div class="mt-4 overflow-x-auto">
+            <ul class="flex snap-x snap-mandatory gap-4 pb-2" role="list">
+              <li class="min-w-[320px] md:min-w-0 flex-1 snap-start">
+                <figure class="rounded-2xl bg-white ring-1 ring-slate-200 shadow-sm p-6 transition hover:-translate-y-1 hover:shadow-lg text-left">
+                  <p class="text-[15px] leading-relaxed text-slate-600"><span class="qc">“</span>The checklist kept me on track. I finished in days instead of weeks.<span class="qc">”</span></p>
+                  <figcaption class="mt-4 flex items-center gap-3">
+                    <img class="h-9 w-9 rounded-full object-cover" alt="Aarav" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=200&auto=format&fit=crop">
+                    <div class="text-sm"><span class="font-medium">Aarav</span> <span class="text-slate-500">| Partner Visa (India)</span></div>
+                  </figcaption>
+                </figure>
+              </li>
+              <li class="min-w-[320px] md:min-w-0 flex-1 snap-start">
+                <figure class="rounded-2xl bg-white ring-1 ring-slate-200 shadow-sm p-6 transition hover:-translate-y-1 hover:shadow-lg text-left">
+                  <p class="text-[15px] leading-relaxed text-slate-600"><span class="qc">“</span>AI checks caught a missing document I would have overlooked.<span class="qc">”</span></p>
+                  <figcaption class="mt-4 flex items-center gap-3">
+                    <img class="h-9 w-9 rounded-full object-cover" alt="Amara" src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=200&auto=format&fit=crop">
+                    <div class="text-sm"><span class="font-medium">Amara</span> <span class="text-slate-500">| Skilled Visa (United Kingdom)</span></div>
+                  </figcaption>
+                </figure>
+              </li>
+              <li class="min-w-[320px] md:min-w-0 flex-1 snap-start">
+                <figure class="rounded-2xl bg-white ring-1 ring-slate-200 shadow-sm p-6 transition hover:-translate-y-1 hover:shadow-lg text-left">
+                  <p class="text-[15px] leading-relaxed text-slate-600"><span class="qc">“</span>I liked adding a professional review without paying thousands.<span class="qc">”</span></p>
+                  <figcaption class="mt-4 flex items-center gap-3">
+                    <img class="h-9 w-9 rounded-full object-cover" alt="Daniel" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop">
+                    <div class="text-sm"><span class="font-medium">Daniel</span> <span class="text-slate-500">| Student Visa (Germany)</span></div>
+                  </figcaption>
+                </figure>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-5 text-center"><a class="text-sm link" href="#stories">More stories</a></div>
+        </div>
+      </section>
+
+      <div class="divider"></div>
+
+      <!-- PRICING -->
+      <section id="pricing" class="bg-slate-50">
+        <div class="container-xl section-pad text-center">
+          <header class="section-head"><h2 class="title-2">Straightforward pricing</h2></header>
+          <div class="grid gap-8 md:grid-cols-3">
+
+            <!-- DIY Starter -->
+            <article class="h-full flex flex-col border rounded-2xl p-8 text-left bg-white shadow-sm hover:shadow-md transform hover:scale-105 transition">
+              <h3 class="text-[var(--h3)] font-semibold mb-2">DIY Starter</h3>
+              <p class="text-sm text-gray-500 mb-6">For confident self-filers who just need structure.</p>
+              <p class="text-3xl font-bold mb-6"><span class="tnum">$99</span> <span class="text-base font-normal text-gray-500">/application</span></p>
+              <ul class="space-y-3 text-sm flex-1" role="list">
+                <li class="flex gap-2"><span class="text-green-600">✔</span>Guided workflow & checklists</li>
+                <li class="flex gap-2"><span class="text-green-600">✔</span>Eligibility basics</li>
+                <li class="flex gap-2"><span class="text-green-600">✔</span>Basic error spotting</li>
+                <li class="flex gap-2"><span class="text-green-600">✔</span>Deadline reminders</li>
+              </ul>
+              <div class="mt-6 text-center"><a class="text-sm link" href="#pricing">See details</a></div>
+            </article>
+
+            <!-- DIY + Expert AI -->
+            <article class="h-full flex flex-col border-2 border-blue-600 rounded-2xl p-8 text-left bg-white shadow-xl transform scale-105 relative hover:scale-110 transition">
+              <span class="absolute -top-4 right-4 bg-blue-600 text-white text-xs font-medium px-3 py-1 rounded-full shadow">Most popular</span>
+              <h3 class="text-[var(--h3)] font-semibold mb-2 text-blue-700">DIY + Expert AI</h3>
+              <p class="text-sm text-gray-500 mb-6">Our AI is your expert, with smart checks, risk flags, and prep support.</p>
+              <p class="text-3xl font-bold mb-6 tnum">$179 <span class="text-base font-normal text-gray-500">/application</span></p>
+              <ul class="space-y-3 text-sm flex-1" role="list">
+                <li class="flex gap-2"><span class="text-green-600">✔</span>Everything in Starter</li>
+                <li class="flex gap-2"><span class="text-green-600">✔</span>Smart document analysis</li>
+                <li class="flex gap-2"><span class="text-green-600">✔</span>Risk & coverage checks</li>
+                <li class="flex gap-2"><span class="text-green-600">✔</span>Practice interview Q&A</li>
+              </ul>
+              <a class="btn mt-8 bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:opacity-90 pressable" href="#start">Start with Expert AI</a>
+            </article>
+
+            <!-- DIY + Expert AI + Human Review -->
+            <article class="h-full flex flex-col border rounded-2xl p-8 text-left bg-white shadow-sm hover:shadow-md transform hover:scale-105 transition">
+              <h3 class="text-[var(--h3)] font-semibold mb-2">DIY + Expert AI + Human Review</h3>
+              <p class="text-sm text-gray-500 mb-6">For those who want a licensed professional to double-check the AI’s work.</p>
+              <p class="text-3xl font-bold mb-6"><span class="tnum">$299</span> <span class="text-base font-normal text-gray-500">/application</span></p>
+              <ul class="space-y-3 text-sm flex-1" role="list">
+                <li class="flex gap-2"><span class="text-green-600">✔</span>Everything in Expert AI</li>
+                <li class="flex gap-2"><span class="text-green-600">✔</span>One-off licensed expert review</li>
+                <li class="flex gap-2"><span class="text-green-600">✔</span>Personalized feedback & fixes</li>
+                <li class="flex gap-2"><span class="text-green-600">✔</span>Filing checklist confirmation</li>
+              </ul>
+              <div class="mt-6 text-center"><a class="text-sm link" href="#pricing">See details</a></div>
+            </article>
+          </div>
+
+          <!-- Pricing trust row -->
+          <div class="mt-8 border-t border-slate-200 pt-6">
+            <div class="grid grid-cols-2 gap-6 sm:grid-cols-4 text-center text-sm">
+              <div class="space-y-1"><div class="flex items-center justify-center gap-2"><i class="h-4 w-4 text-green-600" data-lucide="lock"></i><span class="font-medium text-slate-700">End-to-end encryption</span></div><p class="text-slate-500 text-xs">Files protected in transit & at rest</p></div>
+              <div class="space-y-1"><div class="flex items-center justify-center gap-2"><i class="h-4 w-4 text-green-600" data-lucide="shield"></i><span class="font-medium text-slate-700">Privacy first</span></div><p class="text-slate-500 text-xs">Data used only for your application</p></div>
+              <div class="space-y-1"><div class="flex items-center justify-center gap-2"><i class="h-4 w-4 text-green-600" data-lucide="check-circle"></i><span class="font-medium text-slate-700">Audit-ready</span></div><p class="text-slate-500 text-xs">Logging & secure workflows</p></div>
+              <div class="space-y-1"><div class="flex items-center justify-center gap-2"><i class="h-4 w-4 text-green-600" data-lucide="users"></i><span class="font-medium text-slate-700">Built with experts</span></div><p class="text-slate-500 text-xs">Designed by professionals</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="divider"></div>
+
+      <!-- COMPARISON -->
+      <section id="comparison" class="bg-white">
+        <div class="container-xl section-pad text-center">
+          <header class="section-head"><h2 class="title-2">How MiraVisa compares</h2></header>
+
+          <!-- Comparison table -->
+          <div class="mt-10 overflow-x-auto">
+            <table class="w-full text-sm text-left border border-[var(--border)] rounded-2xl overflow-hidden shadow-[var(--shadow-md)]">
+              <thead class="bg-white">
+                <tr class="text-slate-700">
+                  <th class="py-5 px-5 w-48"></th>
+                  <th class="py-5 px-5 bg-[var(--brand-faint)]"><div class="flex items-center gap-3"><span class="text-lg font-extrabold text-[var(--brand)]">MiraVisa</span></div><div class="mt-1 text-xs text-slate-500">AI first. Optional human review.</div></th>
+                  <th class="py-5 px-5"><div class="text-lg font-semibold">Traditional Lawyer</div><div class="mt-1 text-xs text-slate-500">1:1 guidance</div></th>
+                  <th class="py-5 px-5"><div class="text-lg font-semibold">Do-It-Yourself</div><div class="mt-1 text-xs text-slate-500">No software</div></th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-[var(--border)]">
+                <tr class="bg-white"><td class="py-4 px-5 font-semibold text-slate-700 sticky left-0 bg-white z-10">Price</td><td class="py-4 px-5 bg-[var(--brand-faint)] font-semibold text-[var(--brand)]">$99–$299 per application</td><td class="py-4 px-5">$2,000–$5,000+</td><td class="py-4 px-5">Free, time-intensive</td></tr>
+                <tr class="bg-slate-50"><td class="py-4 px-5 font-semibold text-slate-700 sticky left-0 bg-slate-50 z-10">Accuracy</td><td class="py-4 px-5 bg-[var(--brand-faint)]"><span class="inline-flex items-center gap-2"><svg class="h-4 w-4 text-[var(--brand)]" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"></path></svg>AI document checks + optional expert review</span></td><td class="py-4 px-5">Depends on provider</td><td class="py-4 px-5">Easy to miss errors</td></tr>
+                <tr class="bg-white"><td class="py-4 px-5 font-semibold text-slate-700 sticky left-0 bg-white z-10">Speed</td><td class="py-4 px-5 bg-[var(--brand-faint)]"><span class="inline-flex items-center gap-2"><svg class="h-4 w-4 text-[var(--brand)]" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24"><path d="M13 2 3 14h7l-1 8 11-14h-7l0-8z"></path></svg>Instant feedback, self-paced</span></td><td class="py-4 px-5">Back and forth over weeks</td><td class="py-4 px-5">Varies, often slow</td></tr>
+                <tr class="bg-slate-50"><td class="py-4 px-5 font-semibold text-slate-700 sticky left-0 bg-slate-50 z-10">Control</td><td class="py-4 px-5 bg-[var(--brand-faint)]">24/7 self-service, clear steps</td><td class="py-4 px-5">Process led by lawyer</td><td class="py-4 px-5">Full control, little guidance</td></tr>
+                <tr class="bg-white"><td class="py-4 px-5 font-semibold text-slate-700 sticky left-0 bg-white z-10">Confidence</td><td class="py-4 px-5 bg-[var(--brand-faint)]">Risk flags, interview prep, exportable packet</td><td class="py-4 px-5">Professional advice</td><td class="py-4 px-5">No safety net</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <div class="divider"></div>
+
+      <!-- FAQ -->
+      <section id="faq" class="bg-slate-50">
+        <div class="container-xl section-pad">
+          <header class="section-head"><h2 class="title-2">Frequently asked questions</h2></header>
+          <div class="border border-[var(--border)] rounded-[16px] overflow-hidden bg-white shadow-[var(--shadow-sm)]">
+            <details class="faq group">
+              <summary class="cursor-pointer flex items-center justify-between px-6 h-[72px]"><span class="text-base font-semibold">Is MiraVisa a law firm?</span><svg class="h-5 w-5 stroke-slate-400 transition-transform duration-200 group-open:rotate-90" fill="none" viewBox="0 0 24 24"><path d="M8 5l8 7-8 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></summary>
+              <div class="faq-content px-6 pb-6 text-sm text-[var(--muted)]">No. MiraVisa is a technology platform and does not provide legal advice. Our flows and checks were designed with input from experienced immigration professionals.</div>
+            </details>
+            <details class="faq group">
+              <summary class="cursor-pointer flex items-center justify-between px-6 h-[72px]"><span class="text-base font-semibold">Do I pay per application?</span><svg class="h-5 w-5 stroke-slate-400 transition-transform duration-200 group-open:rotate-90" fill="none" viewBox="0 0 24 24"><path d="M8 5l8 7-8 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></summary>
+              <div class="faq-content px-6 pb-6 text-sm text-[var(--muted)]">Yes. Pricing is per application. No subscriptions or hidden fees.</div>
+            </details>
+            <details class="faq group">
+              <summary class="cursor-pointer flex items-center justify-between px-6 h-[72px]"><span class="text-base font-semibold">How reliable are the AI checks?</span><svg class="h-5 w-5 stroke-slate-400 transition-transform duration-200 group-open:rotate-90" fill="none" viewBox="0 0 24 24"><path d="M8 5l8 7-8 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></summary>
+              <div class="faq-content px-6 pb-6 text-sm text-[var(--muted)]">Expert AI runs consistency checks, risk flags, and confidence scoring in real time. It improves quality but does not replace an immigration officer or a lawyer.</div>
+            </details>
+            <details class="faq group">
+              <summary class="cursor-pointer flex items-center justify-between px-6 h-[72px]"><span class="text-base font-semibold">Can I get human help?</span><svg class="h-5 w-5 stroke-slate-400 transition-transform duration-200 group-open:rotate-90" fill="none" viewBox="0 0 24 24"><path d="M8 5l8 7-8 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></summary>
+              <div class="faq-content px-6 pb-6 text-sm text-[var(--muted)]">Yes. You can choose a plan with human review for added reassurance or consult an attorney separately for complex cases.</div>
+            </details>
+            <details class="faq group">
+              <summary class="cursor-pointer flex items-center justify-between px-6 h-[72px]"><span class="text-base font-semibold">Is my data safe?</span><svg class="h-5 w-5 stroke-slate-400 transition-transform duration-200 group-open:rotate-90" fill="none" viewBox="0 0 24 24"><path d="M8 5l8 7-8 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></summary>
+              <div class="faq-content px-6 pb-6 text-sm text-[var(--muted)]">Yes. Documents are encrypted in transit and at rest. We never sell your data. It is only used to support your application.</div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- SUPPORT CTA -->
+      <section id="support" class="bg-white">
+        <div class="container-xl section-pad">
+          <header class="section-head"><h2 class="title-2">Still have questions?</h2></header>
+          <p class="text-sm text-[var(--muted)] max-w-[720px] mx-auto text-center">Browse our FAQ or email us at <a class="link" href="mailto:support@miravisa.com">support@miravisa.com</a> for guidance.</p>
+          <div class="mt-6 flex items-center justify-center gap-6">
+            <a class="link" href="#faq">Browse FAQ</a>
+            <a class="btn btn-primary hover-lift pressable" href="#start">Start free</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="text-white border-t border-t-transparent bg-[var(--dark)] bg-gradient-to-r from-blue-600 to-purple-600">
+      <div class="container-xl section-pad grid grid-cols-5 gap-12">
+        <div class="col-span-2 flex flex-col gap-4">
+          <div class="flex items-center gap-3"><span class="h-8 w-8 rounded-[12px] bg-[var(--brand)] inline-flex items-center justify-center text-white font-bold">M</span><span class="font-semibold">MiraVisa</span></div>
+          <p class="text-sm text-slate-300 max-w-xs">Modern tools to navigate visas, residency, and citizenship with clarity.</p>
+          <p class="text-sm text-slate-400">© 2025 MiraVisa. All rights reserved.</p>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-4">Company</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="javascript:void(0)">About</a></li>
+            <li><a href="javascript:void(0)">Careers</a></li>
+            <li><a href="javascript:void(0)">Blog</a></li>
+            <li><a href="javascript:void(0)">Press</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-4">Legal</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="javascript:void(0)">Privacy</a></li>
+            <li><a href="javascript:void(0)">Terms</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-4">Support</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#support">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <div id="start" class="sr-only" aria-hidden="true"></div>
+    <div id="signin" class="sr-only" aria-hidden="true"></div>
+
+    <script>
+document.addEventListener('DOMContentLoaded',()=>{ if(window.lucide) lucide.createIcons(); });
+    </script>
+  </body>
+</html>
