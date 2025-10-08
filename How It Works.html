@@ -1,0 +1,1623 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=1280" />
+  <title>MiraVisa — How it works</title>
+  <meta name="description"
+    content="See how MiraVisa guides your case from eligibility to submission with visual milestones and real examples." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+      :root {
+        --brand: #2563eb;
+        --brand-600: #1d4ed8;
+        --bg: #f8fafc;
+        --border: #e5e7eb;
+        --muted: #475569;
+      }
+
+      body {
+        font-family: Inter, system-ui;
+        background: var(--bg);
+        color: #0f172a;
+      }
+
+      /* Active pill */
+      .tab[aria-selected="true"] {
+        background: #0f172a;
+        color: #fff;
+        border-color: #0f172a;
+        box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.06),
+          0 1px 1px rgba(0, 0, 0, 0.04);
+      }
+
+      /* Keyboard focus */
+      .tab:focus-visible {
+        outline: 2px solid rgba(56, 189, 248, 0.6);
+        outline-offset: 2px;
+      }
+
+      @media (max-width:1199px) {
+        body::before {
+          content: "Desktop preview only";
+          position: fixed;
+          inset: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: #0f172a;
+          color: #fff;
+          z-index: 9999;
+          font: 600 18px/1 system-ui;
+        }
+      }
+
+      .animate-spin-slow {
+        animation: spin 3.2s linear infinite;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .pulse {
+        animation: pulse 1.8s ease-in-out infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.40)
+        }
+
+        70% {
+          box-shadow: 0 0 0 10px rgba(16, 185, 129, 0)
+        }
+
+        100% {
+          box-shadow: 0 0 0 0 rgba(16, 185, 129, 0)
+        }
+      }
+    </style>
+  </head>
+
+
+
+<body class="bg-black text-white">
+
+  <!-- HERO -->
+  <section class="relative overflow-hidden">
+    <div aria-hidden="true" class="absolute inset-0 bg-cover bg-center opacity-25"
+      style="background-image:url('https://picsum.photos/1600/900?random=10')"></div>
+    <div aria-hidden="true"
+      class="absolute -left-24 -top-24 w-[600px] h-[600px] rounded-full bg-fuchsia-500/20 blur-3xl"></div>
+    <div aria-hidden="true"
+      class="absolute -right-24 -bottom-24 w-[500px] h-[500px] rounded-full bg-blue-500/20 blur-3xl"></div>
+
+    <!-- HEADER -->
+    <header class="mx-auto max-w-screen-xl px-5 pt-10 pb-24 relative z-10">
+      <div class="flex items-center justify-between">
+        <a href="index.html" class="flex items-center gap-3">
+          <span
+            class="h-8 w-8 rounded-xl bg-white text-black font-bold inline-flex items-center justify-center">M</span>
+          <span class="text-xl font-semibold text-white">MiraVisa</span>
+        </a>
+      </div>
+
+      <!-- HERO COPY -->
+      <div class="max-w-4xl mt-20 text-white">
+        <h1 class="text-[52px] leading-[1.05] font-extrabold tracking-tight">Start your case. Find your path.
+        </h1>
+        <p class="mt-6 text-xl text-slate-200 max-w-2xl">From first question to submission—smart checkpoints,
+          clear<br />steps, no guesswork.</p>
+        <div class="mt-8 flex flex-wrap items-center gap-3">
+          <!-- CTA: Start a case -->
+          <a href="#start"
+            class="inline-flex items-center gap-2 rounded-full bg-white text-black px-6 py-3 font-semibold">Start a
+            case</a>
+          <!-- CTA: See how it works -->
+          <a href="#journey"
+            class="inline-flex items-center gap-2 rounded-full bg-white/10 text-white backdrop-blur px-6 py-3 font-semibold ring-1 ring-white/30">See
+            how it works</a>
+        </div>
+      </div>
+
+      <!-- HERO IMAGE STACK -->
+      <div class="absolute right-8 top-28 hidden xl:block">
+        <div class="relative w-[460px] h-[560px]">
+          <img src="https://picsum.photos/400/400?random=1" alt="Applicant holding passport"
+            class="absolute right-0 top-0 w-80 h-80 object-cover rounded-2xl shadow-2xl" />
+          <img src="https://picsum.photos/500/300?random=2" alt="Checklist on laptop"
+            class="absolute left-8 top-44 w-72 h-48 object-cover rounded-2xl shadow-2xl" />
+          <img src="https://picsum.photos/300/400?random=3" alt="Happy approval moment"
+            class="absolute right-16 top-72 w-48 h-60 object-cover rounded-2xl shadow-2xl" />
+        </div>
+      </div>
+    </header>
+  </section>
+
+  <script>
+    document.querySelectorAll('[role="tablist"]').forEach(group => {
+      group.addEventListener('click', e => {
+        const btn = e.target.closest('[role="tab"]');
+        if (!btn) return;
+        group.querySelectorAll('[role="tab"]').forEach(t => t.setAttribute('aria-selected', 'false'));
+        btn.setAttribute('aria-selected', 'true');
+      });
+    });
+  </script>
+
+  <!-- CATEGORIES TAB -->
+  <section id="journey" class="relative bg-white text-black">
+    <div class="mx-auto max-w-screen-xl px-5 pt-12 pb-24">
+
+      <!-- Segmented control -->
+      <div class="flex justify-center mt-4 mb-20">
+        <div role="tablist" aria-label="Visa categories"
+          class="inline-flex items-center gap-2 p-2 rounded-full bg-white/80 ring-1 ring-slate-200 shadow-sm backdrop-blur">
+          <button role="tab" class="tab rounded-full px-5 py-2.5 text-base font-semibold
+                text-slate-700 ring-1 ring-slate-200 bg-white/60 hover:bg-white transition"
+            aria-selected="true">Citizenship</button>
+          <button role="tab" class="tab rounded-full px-5 py-2.5 text-base font-semibold
+                text-slate-700 ring-1 ring-slate-200 bg-white/60 hover:bg-white transition"
+            aria-selected="false">Partner</button>
+          <button role="tab" class="tab rounded-full px-5 py-2.5 text-base font-semibold
+                text-slate-700 ring-1 ring-slate-200 bg-white/60 hover:bg-white transition"
+            aria-selected="false">Student</button>
+          <button role="tab" class="tab rounded-full px-5 py-2.5 text-base font-semibold
+                text-slate-700 ring-1 ring-slate-200 bg-white/60 hover:bg-white transition"
+            aria-selected="false">Skilled</button>
+          <button role="tab" class="tab rounded-full px-5 py-2.5 text-base font-semibold
+                text-slate-700 ring-1 ring-slate-200 bg-white/60 hover:bg-white transition"
+            aria-selected="false">Naturalization</button>
+        </div>
+      </div>
+
+      <!-- STEP 1 -->
+      <div class="grid grid-cols-1 xl:grid-cols-12 gap-10 items-center">
+        <!-- STEP 1 LEFT -->
+        <div class="xl:col-span-5">
+          <div class="flex items-center gap-2 text-slate-400 font-semibold text-lg mb-6">
+            <span class="text-slate-300">1.</span>
+            <div class="h-px flex-1 bg-slate-200/70"></div>
+          </div>
+          <h2 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900">Start your case</h2>
+          <p class="mt-4 text-lg text-slate-600 leading-relaxed max-w-xl">Answer a few smart questions. We flag risks
+            and map your pathway so you’re ready for the checklist—no guesswork, no jargon.</p>
+          <ul class="mt-6 space-y-3 text-slate-700 text-base" role="list">
+            <li class="flex items-center gap-2"><i data-lucide="check-circle"
+                class="w-5 h-5 text-emerald-500"></i>Instant eligibility snapshot</li>
+            <li class="flex items-center gap-2"><i data-lucide="alert-triangle" class="w-5 h-5 text-amber-500"></i>Risk
+              flags, explained clearly</li>
+            <li class="flex items-center gap-2"><i data-lucide="clock" class="w-5 h-5 text-indigo-500"></i>Takes about
+              3–5 minutes</li>
+          </ul>
+          <div class="mt-8 text-base text-slate-600 max-w-md">Your answers shape a personalized path, not a
+            one-size-fits-all process.</div>
+        </div>
+
+        <!-- STEP 1 RIGHT -->
+        <div class="xl:col-span-7 relative h-[520px] -mr-10 xl:-mr-24 select-none">
+
+          <!-- background blur -->
+          <div aria-hidden="true" class="absolute inset-0 bg-center bg-cover" style="background-image:url('https://picsum.photos/280/210?random=81');
+              filter:blur(8px) brightness(.98);transform:scale(1.06)">
+          </div>
+          <div aria-hidden="true"
+            class="pointer-events-none absolute inset-0 bg-gradient-to-l from-white via-transparent to-transparent">
+          </div>
+
+          <!-- Journey connector: subtle, slow, premium -->
+          <svg class="absolute inset-0 w-full h-full pointer-events-none z-4" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <!-- soft fade along the path -->
+              <linearGradient id="pathFade" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#334155" stop-opacity="0.65" />
+                <stop offset="1" stop-color="#334155" stop-opacity="0.25" />
+              </linearGradient>
+
+              <!-- tiny glow for the traveler dot -->
+              <filter id="dotGlow" x="-50%" y="-50%" width="200%" height="200%">
+                <feDropShadow dx="0" dy="0" stdDeviation="1.5" flood-color="#334155" flood-opacity="0.35" />
+              </filter>
+            </defs>
+
+            <!-- path -->
+            <path id="journeyPath" d="M 250 140
+           C 250 320, 250 320, 450 320
+           S 700 320, 680 420" fill="none" stroke="url(#pathFade)" stroke-width="2.5" stroke-dasharray="6 12"
+              stroke-linecap="round" opacity="0.9">
+              <!-- gentle marching dashes -->
+              <animate attributeName="stroke-dashoffset" from="0" to="-120" dur="40s" repeatCount="indefinite" />
+            </path>
+
+          </svg>
+
+
+          <style>
+            /* Bounding box controls */
+            .mv3-box {
+              position: relative;
+              width: 200px;
+              /* wider = more spread horizontally */
+              height: 250px;
+              /* taller = more room vertically */
+              transform: scale(var(--cluster-scale, 1));
+              transform-origin: top left;
+            }
+          </style>
+
+          <div class="absolute left-0 top-0 z-20">
+            <div class="mv3-box" style="--cluster-scale: 0.74;">
+              <!-- Graduation -->
+              <figure class="absolute left-5 top-4 z-40 w-[150px] bg-white rounded-lg shadow-xl ring-1 ring-black/10">
+                <img src="https://picsum.photos/360/260?random=602" alt="Graduation"
+                  class="w-full h-[110px] object-cover rounded-md" />
+                <figcaption class="mt-1 text-xs font-medium text-slate-700 text-center">Graduation</figcaption>
+              </figure>
+
+              <!-- My new job -->
+              <figure
+                class="absolute left-[90px] top-20 z-50 w-[155px] bg-white rounded-lg shadow-xl ring-1 ring-black/10">
+                <img src="https://picsum.photos/360/260?random=601" alt="My new job"
+                  class="w-full h-[115px] object-cover rounded-md" />
+                <figcaption class="mt-1 text-xs font-medium text-slate-700 text-center">My new job</figcaption>
+              </figure>
+
+              <!-- First apartment -->
+              <figure
+                class="absolute left-[180px] top-10 z-30 w-[150px] bg-white rounded-lg shadow-xl ring-1 ring-black/10">
+                <img src="https://picsum.photos/360/260?random=605" alt="First apartment"
+                  class="w-full h-[110px] object-cover rounded-md" />
+                <figcaption class="mt-1 text-xs font-medium text-slate-700 text-center">First apartment</figcaption>
+              </figure>
+
+              <!-- Celebrating with friends -->
+              <figure
+                class="absolute left-[265px] top-18 z-40 w-[150px] bg-white rounded-lg shadow-xl ring-1 ring-black/10">
+                <img src="https://picsum.photos/360/260?random=604" alt="Celebrating with friends"
+                  class="w-full h-[112px] object-cover rounded-md" />
+                <figcaption class="mt-1 text-xs font-medium text-slate-700 text-center">Celebrating with friends
+                </figcaption>
+              </figure>
+
+              <!-- Giving back -->
+              <figure
+                class="absolute left-[350px] top-12 z-20 w-[150px] bg-white rounded-lg shadow-xl ring-1 ring-black/10">
+                <img src="https://picsum.photos/360/260?random=603" alt="Giving back"
+                  class="w-full h-[112px] object-cover rounded-md" />
+                <figcaption class="mt-1 text-xs font-medium text-slate-700 text-center">Giving back</figcaption>
+              </figure>
+
+              <!-- Parents visiting -->
+              <figure
+                class="absolute left-[440px] top-30 z-50 w-[155px] bg-white rounded-lg shadow-xl ring-1 ring-black/10">
+                <img src="https://picsum.photos/360/260?random=607" alt="Parents visiting"
+                  class="w-full h-[115px] object-cover rounded-md" />
+                <figcaption class="mt-1 text-xs font-medium text-slate-700 text-center">Parents visiting</figcaption>
+              </figure>
+
+              <!-- Kids -->
+              <figure
+                class="absolute left-[510px] top-16 z-30 w-[160px] bg-white rounded-lg shadow-xl ring-1 ring-black/10">
+                <img src="https://picsum.photos/360/260?random=608" alt="Kids"
+                  class="w-full h-[118px] object-cover rounded-md" />
+                <figcaption class="mt-1 text-xs font-medium text-slate-700 text-center">Kids</figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <!-- STEP 2: Case folder (refined outline) -->
+          <div class="absolute right-6 bottom-8 scale-[65%] origin-bottom-right">
+            <div class="relative w-[280px] h-[170px] select-none">
+
+              <!-- BACK SHELL (clean folder body) -->
+              <div
+                class="absolute inset-0 rounded-md bg-[#6B7280] shadow-[0_18px_48px_rgba(2,6,23,.18)] overflow-hidden">
+                <!-- top bar -->
+                <div class="absolute top-0 left-0 right-0 h-7 bg-[#4B5563] rounded-t-md"></div>
+                <!-- tab -->
+                <div class="absolute top-[-8px] left-6 h-7 w-28 bg-[#4B5563] rounded-t-md"></div>
+                <!-- white paper edge -->
+                <div class="absolute top-2 left-14 right-14 h-3 rounded bg-[#C9D1DC]"></div>
+              </div>
+
+              <!-- SLOT LIP -->
+              <div class="absolute top-9 left-8 right-8 h-1.5 rounded-full
+                bg-[#C9D1DC] shadow-[inset_0_1px_0_rgba(255,255,255,.6)]"></div>
+
+              <!-- PAPERS INSIDE -->
+              <div class="absolute inset-x-9 top-3 bottom-[92px] overflow-hidden">
+
+                <!-- Passport (first and on top) -->
+                <div
+                  class="right-0 top-4 h-14 w-20 rounded-lg ring-1 ring-[#1E3A8A] bg-[#1E3A8A] shadow-md z-20 flex justify-center pt-2">
+                  <span class="text-[10px] font-bold tracking-wider" style="background: linear-gradient(90deg, #F8E9B0, #D8B947);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;">
+                    PASSPORT
+                  </span>
+                </div>
+
+
+                <!-- Bank Statement -->
+                <div class="absolute right-2 top-4 h-24 w-36 rounded-xl ring-1 ring-[#D2D8E2] bg-white shadow-md">
+                  <div class="h-3 w-full rounded-t-xl bg-[#FACC15]"></div>
+                  <div class="m-2 h-3 w-24 rounded bg-[#E5E7EB]"></div>
+                </div>
+
+                <!-- Rental Contract -->
+                <div
+                  class="absolute right-12 top-7 h-24 w-36 rounded-xl ring-1 ring-[#D2D8E2] bg-white shadow-md opacity-95">
+                  <div class="h-3 w-full rounded-t-xl bg-[#1E3A8A]"></div>
+                  <div class="m-2 h-3 w-28 rounded bg-[#E5E7EB]"></div>
+                </div>
+
+                <!-- Pay Stub -->
+                <div
+                  class="absolute right-[5.5rem] top-10 h-24 w-36 rounded-xl ring-1 ring-[#D2D8E2] bg-white shadow-md opacity-100">
+                  <div class="h-3 w-full rounded-t-xl bg-[#10B981]"></div>
+                  <div class="m-2 h-5 w-28 rounded bg-[#E5E7EB]"></div>
+                </div>
+
+                <!-- Passport Photos (small squares) -->
+                <div class="absolute right-[4rem] top-8 flex gap-2 z-10">
+                  <div class="h-10 w-10 overflow-hidden rounded-md ring-1 ring-[#D2D8E2] bg-white">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Passport photo 1"
+                      class="h-full w-full object-cover" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- FRONT POCKET (outline refined) -->
+              <div class="absolute left-0 right-0 bottom-0 h-[104px] rounded-b-[10px]
+                bg-gradient-to-b from-[#F9FAFC] to-[#E7ECF2]
+                ring-1 ring-[#BFC7D3] shadow-[0_12px_28px_rgba(2,6,23,.12)] z-10 overflow-hidden">
+                <!-- inner bevel line hugging the border -->
+                <div
+                  class="pointer-events-none absolute inset-0 rounded-b-[10px] ring-1 ring-white/55 mix-blend-overlay">
+                </div>
+                <!-- hairline at top edge to separate from contents -->
+                <div class="absolute inset-x-0 top-0 h-px bg-white/50"></div>
+                <div class="absolute inset-x-0 top-[1px] h-px bg-black/5"></div>
+              </div>
+
+              <!-- LABEL STRIP -->
+              <div class="absolute left-0 right-0 bottom-[48px] z-20 px-6">
+                <div class="h-8 w-full rounded-[10px]
+                  bg-[#1F2937] text-white text-[13px] font-semibold tracking-wide
+                  flex items-center justify-center shadow-[0_6px_14px_rgba(2,6,23,.20)]
+                  ring-1 ring-black/10">
+                  CASE • AU-CIT-001
+                </div>
+              </div>
+
+              <!-- EDGE SHADOW -->
+              <div class="absolute left-3 right-3 bottom-[96px] h-4 rounded-full
+                bg-black/10 blur-[8px] z-[5]"></div>
+            </div>
+          </div>
+
+          <!-- STEP 3 — compact file cluster (bottom-center, slight overlaps) -->
+          <style>
+            .mv3 {
+              position: absolute;
+              top: 160px;
+              /* distance from top edge */
+              right: 200px;
+              /* distance from right edge */
+              transform: scale(0.75);
+              /* overall size */
+              transform-origin: top right;
+              pointer-events: none;
+              z-index: 3;
+            }
+
+            /* The cluster’s bounding box. Shrink/expand if you add more docs */
+            .mv3-box {
+              position: relative;
+              width: 560px;
+              /* ← Wider = more spread horizontally */
+              height: 260px;
+              /* ← Taller = more room vertically */
+            }
+
+            /* Global doc styling */
+            .mv3 .doc {
+              position: absolute;
+              filter: drop-shadow(0 10px 18px rgba(2, 6, 23, .12));
+            }
+
+            .mv3 .doc svg {
+              width: 100%;
+              height: auto;
+              display: block;
+            }
+
+            /* ====== INDIVIDUAL POSITIONS ====== */
+            .mv3 .paystub {
+              left: 44px;
+              bottom: 0px;
+              width: 170px;
+              z-index: 1;
+            }
+
+            .mv3 .passport {
+              left: 154px;
+              bottom: 0px;
+              width: 88px;
+              z-index: 3;
+            }
+
+            .mv3 .boarding {
+              right: 50px;
+              bottom: 0px;
+              width: 190px;
+              z-index: 3;
+            }
+
+            .mv3 .utility {
+              right: 158px;
+              bottom: 0px;
+              width: 170px;
+              z-index: 1;
+            }
+          </style>
+
+          <div class="mv3">
+            <div class="mv3-box">
+
+              <!-- Passport -->
+              <div class="doc passport">
+                <svg class="mv-doc mv-shadow" width="170" height="210" viewBox="0 0 170 210"
+                  xmlns="http://www.w3.org/2000/svg" aria-label="Passport booklet">
+                  <defs>
+                    <linearGradient id="p-navy" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0" stop-color="#142C66" />
+                      <stop offset="1" stop-color="#0A1E49" />
+                    </linearGradient>
+                    <linearGradient id="p-gold" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0" stop-color="#F8E9B0" />
+                      <stop offset="0.5" stop-color="#D8B947" />
+                      <stop offset="1" stop-color="#E7C56C" />
+                    </linearGradient>
+                  </defs>
+
+                  <!-- cover -->
+                  <rect x="3" y="3" width="164" height="204" rx="18" fill="url(#p-navy)" stroke="#061536"
+                    stroke-width="3" />
+                  <!-- spine -->
+                  <rect x="20" y="3" width="7" height="204" fill="#0E234F" opacity=".95" />
+                  <g stroke="#1F376E" opacity=".45">
+                    <line x1="23.5" y1="16" x2="23.5" y2="26" />
+                    <line x1="23.5" y1="34" x2="23.5" y2="44" />
+                    <line x1="23.5" y1="52" x2="23.5" y2="62" />
+                    <line x1="23.5" y1="70" x2="23.5" y2="80" />
+                    <line x1="23.5" y1="88" x2="23.5" y2="98" />
+                    <line x1="23.5" y1="106" x2="23.5" y2="116" />
+                    <line x1="23.5" y1="124" x2="23.5" y2="134" />
+                    <line x1="23.5" y1="142" x2="23.5" y2="152" />
+                    <line x1="23.5" y1="160" x2="23.5" y2="170" />
+                    <line x1="23.5" y1="178" x2="23.5" y2="188" />
+                  </g>
+
+                  <!-- title -->
+                  <text x="95" y="44" text-anchor="middle"
+                    font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto" font-size="18"
+                    font-weight="800" fill="url(#p-gold)" letter-spacing=".05em">
+                    PASSPORT
+                  </text>
+
+                  <!-- emblem: minimal globe -->
+                  <g transform="translate(95,102) scale(0.90)" fill="none" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <!-- outer circle -->
+                    <circle r="40" stroke="url(#p-gold)" stroke-width="4" />
+
+                    <!-- vertical meridian -->
+                    <ellipse rx="14" ry="40" stroke="url(#p-gold)" stroke-width="3" />
+
+                    <!-- equator -->
+                    <line x1="-40" y1="0" x2="40" y2="0" stroke="#E7C56C" stroke-width="3" />
+
+                    <!-- top latitude arc -->
+                    <path d="M -30 -25 A 30 12 0 0 0 30 -25" stroke="#E7C56C" stroke-width="3" fill="none" />
+
+                    <!-- bottom latitude arc -->
+                    <path d="M -30 25 A 30 12 0 0 1 30 25" stroke="#E7C56C" stroke-width="3" fill="none" />
+                  </g>
+
+                  <!-- ICAO e-passport mark -->
+                  <g transform="translate(78,158)" fill="none" stroke="url(#p-gold)" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <rect width="34" height="22" rx="4" />
+                    <circle cx="17" cy="11" r="5" />
+                    <line x1="6" y1="11" x2="28" y2="11" />
+                  </g>
+
+
+
+                  <!-- soft outer border -->
+                  <rect x="3" y="3" width="164" height="204" rx="18" fill="none" stroke="#1B2E64" stroke-width="2"
+                    opacity=".35" />
+                </svg>
+              </div>
+
+
+              <!-- Utility bills -->
+              <div class="doc utility">
+                <svg class="mv-doc mv-shadow" width="220" height="270" viewBox="0 0 220 270"
+                  xmlns="http://www.w3.org/2000/svg" aria-label="Utility bills">
+
+                  <!-- BACK: Rental Contract (with left-side details) -->
+                  <defs>
+                    <!-- Header gradient -->
+                    <linearGradient id="rentHdr" x1="0" y1="0" x2="1" y2="0">
+                      <stop offset="0" stop-color="#1E3A8A" />
+                      <stop offset="1" stop-color="#274EC7" />
+                    </linearGradient>
+
+                    <!-- Card shadow -->
+                    <filter id="rentCardShadow" x="-20%" y="-20%" width="140%" height="140%">
+                      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000000" flood-opacity="0.15" />
+                    </filter>
+
+                    <!-- Clip (for header bleed) -->
+                    <clipPath id="rentClip">
+                      <rect x="4" y="4" width="212" height="262" rx="12" />
+                    </clipPath>
+                  </defs>
+
+                  <!-- Move card left by tweaking translate(X,0): e.g. -18, -24, etc. -->
+                  <g id="rentCard" transform="translate(-4,0)" opacity="0.95" filter="url(#rentCardShadow)">
+                    <!-- Card -->
+                    <rect x="4" y="4" width="212" height="262" rx="12" fill="#FFFFFF" />
+
+                    <!-- Header -->
+                    <g clip-path="url(#rentClip)">
+                      <rect x="4" y="4" width="212" height="28" fill="url(#rentHdr)" />
+                      <rect x="4" y="32" width="212" height="1" fill="#0B1E5E" opacity=".12" />
+                    </g>
+                    <text x="12" y="24" font-family="ui-sans-serif, system-ui" font-size="11" font-weight="800"
+                      fill="#FFFFFF" letter-spacing=".02em">Rental Contract</text>
+
+                    <!-- LEFT-SIDE DETAILS ONLY -->
+                    <!-- section tag -->
+                    <rect x="12" y="44" width="92" height="18" rx="6" fill="#F8FAFC" stroke="#E5E7EB" />
+                    <text x="18" y="56" font-family="ui-sans-serif, system-ui" font-size="9" font-weight="700"
+                      fill="#0F172A">
+                      Parties
+                    </text>
+
+                    <!-- fields -->
+                    <g font-family="ui-sans-serif, system-ui" font-size="8" fill="#334155">
+                      <text x="14" y="74" font-weight="700">Landlord:</text><text x="72" y="74">Acme Rentals</text>
+                      <text x="14" y="88" font-weight="700">Tenant:</text><text x="72" y="88">John Doe</text>
+                      <line x1="14" y1="94" x2="104" y2="94" stroke="#E5E7EB" />
+
+                      <text x="14" y="108" font-weight="700">Address:</text>
+                      <text x="14" y="120">12 Example St</text>
+                      <text x="14" y="132">Springfield, 3000</text>
+                      <line x1="14" y1="138" x2="104" y2="138" stroke="#E5E7EB" />
+
+                      <text x="14" y="152" font-weight="700">Term:</text><text x="52" y="152">12 months</text>
+                      <text x="14" y="166" font-weight="700">Start:</text><text x="52" y="166">01 Jul 2024</text>
+                      <text x="14" y="180" font-weight="700">End:</text><text x="52" y="180">30 Jun 2025</text>
+                      <line x1="14" y1="186" x2="104" y2="186" stroke="#E5E7EB" />
+
+                      <text x="14" y="200" font-weight="700">Rent:</text><text x="52" y="200">$2,100 / mo</text>
+                      <text x="14" y="214" font-weight="700">Due:</text><text x="52" y="214">1st of month</text>
+                    </g>
+
+                    <!-- tiny signature hint (left bottom) -->
+                    <text x="14" y="240" font-family="ui-sans-serif, system-ui" font-size="7" fill="#64748B">Tenant
+                      signature</text>
+                    <line x1="14" y1="244" x2="104" y2="244" stroke="#CBD5E1" />
+                  </g>
+
+
+
+                  <!-- FRONT: Electricity bill (refined) -->
+                  <defs>
+                    <linearGradient id="billHdr" x1="0" y1="0" x2="1" y2="0">
+                      <stop offset="0" stop-color="#F4E3C1" />
+                      <stop offset="1" stop-color="#F3D9A8" />
+                    </linearGradient>
+
+                    <filter id="billShadow" x="-20%" y="-20%" width="140%" height="140%">
+                      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.12" />
+                    </filter>
+
+                    <!-- shared rounded clip to avoid seams -->
+                    <clipPath id="billClip">
+                      <rect x="4" y="4" width="212" height="262" rx="12" />
+                    </clipPath>
+                  </defs>
+
+                  <g transform="translate(18,24)" filter="url(#billShadow)">
+                    <!-- card background -->
+                    <rect x="4" y="4" width="212" height="262" rx="12" fill="#FFFFFF" />
+
+                    <!-- header band, clipped to same shape -->
+                    <g clip-path="url(#billClip)">
+                      <!-- Header band -->
+                      <rect x="4" y="4" width="212" height="46" rx="12 12 0 0" fill="url(#billHdr)" stroke="#E2D3AE" />
+
+                    </g>
+
+                    <text x="16" y="30" font-family="ui-sans-serif, system-ui" font-size="10" font-weight="700"
+                      fill="#0F172A">
+                      Electricity Bill
+                    </text>
+                    <text x="16" y="42" font-family="ui-sans-serif, system-ui" font-size="5" fill="#334155">
+                      For billing and service inquiries • Mon–Fri • 7am–7pm
+                    </text>
+
+                    <!-- account pill -->
+                    <g>
+                      <rect x="136" y="12" width="60" height="28" rx="14" fill="#FFF8EE" stroke="#EAD9B8" />
+                      <text x="142" y="24" font-family="ui-sans-serif, system-ui" font-size="7"
+                        fill="#475569">Account</text>
+                      <text x="142" y="32" font-family="ui-sans-serif, system-ui" font-size="8" font-weight="700"
+                        fill="#0F172A">
+                        123-456-789
+                      </text>
+                    </g>
+
+                    <!-- section: account summary -->
+                    <rect x="8" y="66" width="204" height="22" rx="6" fill="#F8FAFC" stroke="#E5E7EB" />
+                    <text x="14" y="80" font-family="ui-sans-serif, system-ui" font-size="9" font-weight="700"
+                      fill="#0F172A">
+                      Account summary
+                    </text>
+
+                    <g font-family="ui-sans-serif, system-ui" font-size="8" fill="#334155">
+                      <text x="14" y="98">Previous balance</text><text x="190" y="98" text-anchor="end">$97.21</text>
+                      <text x="14" y="110">Payments received</text><text x="190" y="110"
+                        text-anchor="end">-$97.21</text>
+                      <line x1="14" y1="116" x2="198" y2="116" stroke="#E5E7EB" />
+                      <text x="14" y="129" font-weight="700">Total amount now due</text>
+                      <text x="190" y="129" text-anchor="end" font-weight="700">$124.58</text>
+                    </g>
+
+                    <!-- section: usage comparison -->
+                    <rect x="8" y="140" width="204" height="22" rx="6" fill="#F8FAFC" stroke="#E5E7EB" />
+                    <text x="14" y="154" font-family="ui-sans-serif, system-ui" font-size="9" font-weight="700"
+                      fill="#0F172A">
+                      Compare to previous usage
+                    </text>
+
+                    <g transform="translate(16,162)">
+                      <rect x="0" y="22" width="16" height="32" rx="2" fill="#CBD5E1" />
+                      <rect x="22" y="16" width="16" height="38" rx="2" fill="#A7B4C4" />
+                      <rect x="44" y="10" width="16" height="44" rx="2" fill="#7E8FA3" />
+                      <rect x="66" y="18" width="16" height="36" rx="2" fill="#A7B4C4" />
+                      <rect x="88" y="24" width="16" height="30" rx="2" fill="#CBD5E1" />
+                      <text x="8" y="64" font-size="7" fill="#64748B">Jan</text>
+                      <text x="30" y="64" font-size="7" fill="#64748B">Feb</text>
+                      <text x="52" y="64" font-size="7" fill="#64748B">Mar</text>
+                      <text x="74" y="64" font-size="7" fill="#64748B">Apr</text>
+                      <text x="96" y="64" font-size="7" fill="#64748B">May</text>
+                    </g>
+
+                    <!-- right info tiles -->
+                    <g transform="translate(142,142)" font-family="ui-sans-serif, system-ui">
+                      <rect x="0" y="0" width="64" height="36" rx="8" fill="#FFFFFF" stroke="#E5E7EB" />
+                      <text x="8" y="14" font-size="7" fill="#475569">Rate plan</text>
+                      <text x="8" y="26" font-size="9" font-weight="700" fill="#0F172A">TOU-D-4</text>
+
+                      <rect x="0" y="46" width="64" height="36" rx="8" fill="#FFFFFF" stroke="#E5E7EB" />
+                      <text x="8" y="60" font-size="7" fill="#475569">Meter read</text>
+                      <text x="8" y="72" font-size="9" font-weight="700" fill="#0F172A">05/29</text>
+                    </g>
+
+                    <!-- payment date panel -->
+                    <rect x="16" y="214" width="120" height="40" rx="10" fill="#FFFFFF" stroke="#CBD5E1" />
+                    <text x="24" y="232" font-size="9" font-family="ui-sans-serif, system-ui" fill="#475569">Amount due
+                      by</text>
+                    <text x="24" y="246" font-size="12" font-weight="800" font-family="ui-sans-serif, system-ui"
+                      fill="#0F172A">
+                      Jun 21
+                    </text>
+
+                    <!-- right rail guide -->
+                    <g transform="translate(202,140)" stroke="#E5E7EB" stroke-width="1">
+                      <line x1="0" y1="0" x2="0" y2="106" />
+                      <line x1="4" y1="0" x2="4" y2="106" opacity=".6" />
+                      <line x1="8" y1="0" x2="8" y2="106" opacity=".3" />
+                    </g>
+
+                    <!-- single outer stroke drawn last -->
+                    <rect x="4" y="4" width="212" height="262" rx="12" fill="none" stroke="#CBD5E1" stroke-width="2" />
+                  </g>
+
+
+
+                </svg>
+              </div>
+
+
+              <!-- Pay stub (front) with Bank Statement behind) -->
+              <div class="doc paystub">
+                <svg class="mv-doc mv-shadow" width="220" height="270" viewBox="0 0 220 270"
+                  xmlns="http://www.w3.org/2000/svg" aria-label="Pay stubs">
+
+                  <!-- BACK: Bank Statement header improved -->
+                  <defs>
+                    <!-- Gradient for header -->
+                    <linearGradient id="bankHdr" x1="0" y1="0" x2="1" y2="0">
+                      <stop offset="0" stop-color="#FACC15" /> <!-- softer golden yellow -->
+                      <stop offset="1" stop-color="#FBBF24" /> <!-- warm amber -->
+                    </linearGradient>
+
+                    <!-- Card shadow filter -->
+                    <filter id="cardShadow" x="-20%" y="-20%" width="140%" height="140%">
+                      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000000" flood-opacity="0.15" />
+                    </filter>
+
+                    <!-- One rounded shape used for clipping -->
+                    <clipPath id="cardClip">
+                      <rect x="4" y="4" width="212" height="262" rx="12" />
+                    </clipPath>
+                  </defs>
+
+                  <g transform="translate(0,0)" opacity="0.95" filter="url(#cardShadow)">
+                    <!-- Card background -->
+                    <rect x="4" y="4" width="212" height="262" rx="12" fill="#FFFFFF" />
+
+                    <!-- Header clipped to card shape -->
+                    <g clip-path="url(#cardClip)">
+                      <rect x="4" y="4" width="212" height="32" fill="url(#bankHdr)" />
+                      <!-- optional divider -->
+                      <rect x="4" y="36" width="212" height="1" fill="#0B1E5E" opacity=".12" />
+                    </g>
+
+                    <!-- Title -->
+                    <text x="16" y="26" font-family="ui-sans-serif, system-ui" font-size="12" font-weight="800"
+                      fill="#111827">
+                      Bank Statement
+                    </text>
+
+                    <!-- Single outer stroke drawn last -->
+                    <rect x="4" y="4" width="212" height="262" rx="12" fill="none" stroke="#E5E7EB" />
+                  </g>
+
+
+                  <!-- PAY STUB (refined) -->
+                  <defs>
+                    <linearGradient id="payHdr" x1="0" y1="0" x2="1" y2="0">
+                      <stop offset="0" stop-color="#D1FAE5" />
+                      <stop offset="1" stop-color="#A7F3D0" />
+                    </linearGradient>
+
+                    <filter id="payShadow" x="-20%" y="-20%" width="140%" height="140%">
+                      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity=".12" />
+                    </filter>
+
+                    <filter id="chipShadow" x="-20%" y="-20%" width="140%" height="140%">
+                      <feDropShadow dx="0" dy="1" stdDeviation="1" flood-color="#000" flood-opacity=".08" />
+                    </filter>
+
+                    <clipPath id="payClip">
+                      <rect x="4" y="4" width="212" height="262" rx="12" />
+                    </clipPath>
+                  </defs>
+
+                  <g transform="translate(10,22)" filter="url(#payShadow)">
+                    <!-- card bg -->
+                    <rect x="4" y="4" width="212" height="262" rx="12" fill="#FFFFFF" />
+
+                    <!-- header -->
+                    <g clip-path="url(#payClip)">
+                      <rect x="4" y="4" width="212" height="40" fill="url(#payHdr)" />
+                      <rect x="4" y="44" width="212" height="1" fill="#10B981" opacity=".16" />
+                    </g>
+
+                    <!-- title -->
+                    <text x="16" y="30" font-family="ui-sans-serif, system-ui" font-size="12" font-weight="800"
+                      fill="#065F46">
+                      Pay Stub
+                    </text>
+
+                    <!-- company chip -->
+                    <g transform="translate(128,10)">
+                      <rect x="0" y="0" width="78" height="24" rx="12" fill="#FFFFFF" stroke="#A7F3D0"
+                        filter="url(#chipShadow)" />
+                      <text x="39" y="16" text-anchor="middle" font-family="ui-sans-serif, system-ui" font-size="9"
+                        font-weight="700" fill="#065F46">
+                        Intel Corp
+                      </text>
+                    </g>
+
+                    <!-- details -->
+                    <g font-family="ui-sans-serif, system-ui" font-size="8" fill="#334155">
+                      <text x="16" y="58" font-weight="700">Employee:</text><text x="80" y="58">John Doe</text>
+                      <text x="16" y="72" font-weight="700">Employee ID:</text><text x="80" y="72">123456</text>
+                      <text x="16" y="86" font-weight="700">Pay Period:</text><text x="80" y="86">01–15 Jun 2024</text>
+                    </g>
+
+                    <!-- earnings -->
+                    <rect x="12" y="100" width="196" height="92" rx="8" fill="#FFFFFF" stroke="#E5E7EB" />
+                    <rect x="12" y="120" width="196" height="16" fill="#F9FAFB" />
+                    <rect x="12" y="152" width="196" height="16" fill="#F9FAFB" />
+                    <text x="20" y="116" font-family="ui-sans-serif, system-ui" font-size="9" font-weight="800"
+                      fill="#0F172A">
+                      Earnings
+                    </text>
+                    <g font-family="ui-sans-serif, system-ui" font-size="8" fill="#475569">
+                      <text x="20" y="134">Base Salary</text><text x="200" y="134" text-anchor="end">$2,000.00</text>
+                      <line x1="20" y1="138" x2="196" y2="138" stroke="#E5E7EB" />
+                      <text x="20" y="150">Overtime</text><text x="200" y="150" text-anchor="end">$150.00</text>
+                      <line x1="20" y1="154" x2="196" y2="154" stroke="#E5E7EB" />
+                      <text x="20" y="166">Bonus</text><text x="200" y="166" text-anchor="end">$300.00</text>
+                      <line x1="20" y1="170" x2="196" y2="170" stroke="#E5E7EB" />
+                      <text x="20" y="186" font-weight="800">Gross Pay</text>
+                      <text x="200" y="186" text-anchor="end" font-weight="800">$2,450.00</text>
+                    </g>
+
+                    <!-- deductions -->
+                    <rect x="12" y="202" width="196" height="52" rx="8" fill="#FFFFFF" stroke="#E5E7EB" />
+                    <rect x="12" y="202" width="196" height="18" rx="8 8 0 0" fill="#F8FAFC" stroke="#E5E7EB" />
+                    <text x="20" y="215" font-family="ui-sans-serif, system-ui" font-size="9" font-weight="800"
+                      fill="#0F172A">
+                      Deductions
+                    </text>
+                    <g font-family="ui-sans-serif, system-ui" font-size="8" fill="#475569">
+                      <text x="20" y="234">Tax & Other</text><text x="200" y="234" text-anchor="end">-$500.00</text>
+                    </g>
+
+                    <!-- net pay bar -->
+                    <rect x="16" y="256" width="188" height="12" rx="3" fill="#D1FAE5" />
+                    <text x="20" y="265" font-family="ui-sans-serif, system-ui" font-size="9" font-weight="800"
+                      fill="#065F46">
+                      Net Pay: $1,950.00
+                    </text>
+
+                    <!-- single outer stroke last -->
+                    <rect x="4" y="4" width="212" height="262" rx="12" fill="none" stroke="#CBD5E1" />
+                  </g>
+
+                </svg>
+              </div>
+
+              <!-- Boarding passes -->
+              <div class="doc boarding">
+                <svg class="mv-doc mv-shadow" width="360" height="150" viewBox="0 0 360 150"
+                  xmlns="http://www.w3.org/2000/svg" aria-label="Boarding passes">
+                  <defs>
+                    <symbol id="ticket" viewBox="0 0 340 120">
+                      <rect x="2" y="2" width="336" height="116" rx="14" fill="#fff" stroke="#CBD5E1"
+                        stroke-width="2" />
+                      <line x1="240" y1="8" x2="240" y2="112" stroke="#E2E8F0" stroke-width="2"
+                        stroke-dasharray="4 6" />
+                      <circle cx="240" cy="8" r="6" fill="#F8FAFC" stroke="#E2E8F0" />
+                      <circle cx="240" cy="112" r="6" fill="#F8FAFC" stroke="#E2E8F0" />
+                    </symbol>
+
+                    <pattern id="bars" width="8" height="40" patternUnits="userSpaceOnUse">
+                      <rect width="1" height="40" x="0" y="0" fill="#0F172A" />
+                      <rect width="2" height="40" x="3" y="0" fill="#0F172A" />
+                      <rect width="1" height="40" x="6" y="0" fill="#0F172A" />
+                    </pattern>
+                  </defs>
+
+                  <g transform="translate(20,18)" opacity=".65">
+                    <use href="#ticket" />
+                    <rect x="2" y="2" width="336" height="26" rx="12" fill="#111827" />
+                    <text x="170" y="21" text-anchor="middle" font-family="ui-sans-serif, system-ui" font-size="11"
+                      font-weight="700" fill="#fff" letter-spacing=".24em">BOARDING PASS</text>
+                    <text x="18" y="54" font-family="ui-sans-serif, system-ui" font-size="10" font-weight="700"
+                      fill="#334155">FROM</text>
+                    <text x="18" y="74" font-family="ui-sans-serif, system-ui" font-size="20" font-weight="800"
+                      fill="#0F172A">SYD</text>
+                    <text x="82" y="67" font-family="ui-sans-serif, system-ui" font-size="12" fill="#64748B">to</text>
+                    <text x="104" y="74" font-family="ui-sans-serif, system-ui" font-size="20" font-weight="800"
+                      fill="#0F172A">DXB</text>
+                    <text x="18" y="98" font-family="ui-sans-serif, system-ui" font-size="10" font-weight="700"
+                      fill="#334155">FLIGHT</text>
+                    <text x="64" y="98" font-family="ui-sans-serif, system-ui" font-size="12"
+                      fill="#0F172A">EK413</text>
+                    <rect x="248" y="36" width="80" height="70" fill="url(#bars)" opacity=".9" />
+                  </g>
+
+                  <g transform="translate(12,10)" opacity=".85">
+                    <use href="#ticket" />
+                    <rect x="2" y="1" width="336" height="26" rx="12" fill="#0EA5E9" />
+                    <text x="170" y="21" text-anchor="middle" font-family="ui-sans-serif, system-ui" font-size="11"
+                      font-weight="800" fill="#fff" letter-spacing=".22em">BOARDING PASS</text>
+
+                    <text x="18" y="54" font-family="ui-sans-serif, system-ui" font-size="10" font-weight="700"
+                      fill="#0F172A">FROM</text>
+                    <text x="18" y="74" font-family="ui-sans-serif, system-ui" font-size="20" font-weight="800"
+                      fill="#0F172A">MEL</text>
+                    <text x="82" y="67" font-family="ui-sans-serif, system-ui" font-size="12" fill="#475569">to</text>
+                    <text x="104" y="74" font-family="ui-sans-serif, system-ui" font-size="20" font-weight="800"
+                      fill="#0F172A">LHR</text>
+
+                    <text x="18" y="98" font-family="ui-sans-serif, system-ui" font-size="10" font-weight="700"
+                      fill="#0F172A">FLIGHT</text>
+                    <text x="64" y="98" font-family="ui-sans-serif, system-ui" font-size="12"
+                      fill="#0F172A">QF123</text>
+
+                    <rect x="292" y="40" width="44" height="48" rx="8" fill="#F8FAFC" stroke="#CBD5E1" />
+                    <text x="314" y="61" text-anchor="middle" font-family="ui-sans-serif, system-ui" font-size="10"
+                      font-weight="700" fill="#0F172A">SEAT</text>
+                    <text x="314" y="84" text-anchor="middle" font-family="ui-sans-serif, system-ui" font-size="18"
+                      font-weight="800" fill="#0F172A">17B</text>
+                    <path d="M314 108l-8-8h-14v-6h14l8-8v22z" fill="#0F172A" opacity=".9" />
+                  </g>
+
+                  <g transform="translate(0,0)">
+                    <use href="#ticket" />
+
+                    <!-- Header bar -->
+                    <rect x="2" y="0" width="356" height="32" rx="12" fill="#EA4B48" opacity=".95" />
+                    <text x="170" y="20" text-anchor="middle" font-family="ui-sans-serif, system-ui" font-size="12"
+                      font-weight="700" fill="#fff" letter-spacing=".26em">
+                      BOARDING PASS
+                    </text>
+
+                    <!-- Main flight route row -->
+                    <text x="18" y="72" font-family="ui-sans-serif, system-ui" font-size="24" font-weight="800"
+                      fill="#0F172A">MEL</text>
+
+                    <rect x="92" y="63" width="36" height="4" rx="2" fill="#E2E8F0" />
+
+                    <text x="154" y="72" font-family="ui-sans-serif, system-ui" font-size="24" font-weight="800"
+                      fill="#0F172A">LHR</text>
+
+                    <text x="304" y="72" text-anchor="middle" font-family="ui-sans-serif, system-ui" font-size="24"
+                      font-weight="800" fill="#0F172A">17B</text>
+
+                    <!-- Details row -->
+                    <text x="18" y="98" font-family="ui-sans-serif, system-ui" font-size="10" font-weight="700"
+                      fill="#0F172A">FLIGHT</text>
+                    <text x="64" y="98" font-family="ui-sans-serif, system-ui" font-size="12"
+                      fill="#0F172A">QF123</text>
+
+                    <text x="154" y="98" font-family="ui-sans-serif, system-ui" font-size="10" font-weight="700"
+                      fill="#0F172A">DATE</text>
+                    <text x="190" y="98" font-family="ui-sans-serif, system-ui" font-size="12" fill="#0F172A">14
+                      JUN</text>
+
+                    <!-- Barcode -->
+                    <rect x="270" y="88" width="74" height="14" fill="url(#bars)" />
+                  </g>
+
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="grid grid-cols-1 xl:grid-cols-12 gap-10 items-center">
+        <!-- STEP 2 LEFT -->
+        <div class="xl:col-span-7 relative h-[560px] -ml-10 xl:-ml-24 select-none">
+          <div aria-hidden="true" class="absolute inset-0 bg-center bg-cover"
+            style="background-image:url('https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=2000&auto=format&fit=crop');filter:brightness(.96) saturate(1.02)">
+          </div>
+          <div aria-hidden="true" class="absolute inset-0 pointer-events-none"
+            style="background:radial-gradient(80% 70% at 30% 40%, rgba(255,255,255,.85) 0%, rgba(255,255,255,.65) 40%, rgba(241,245,249,.65) 70%, rgba(226,232,240,.85) 100%)">
+          </div>
+          <div aria-hidden="true" class="absolute inset-0 opacity-[.18] mix-blend-multiply pointer-events-none"
+            style="background-image:url('https://images.unsplash.com/photo-1526318472351-c75fcf070305?q=80&w=1600&auto=format&fit=crop');background-size:cover">
+          </div>
+
+          <!-- CARD: Your checklist -->
+          <div
+            class="absolute left-10 top-10 w-[62%] bg-white rounded-2xl shadow-2xl ring-1 ring-indigo-100 p-6 transition duration-500 hover:-translate-y-2 z-30">
+            <div class="flex items-center gap-2 text-slate-800 font-semibold">
+              <i data-lucide="list-checks" class="h-5 w-5 text-indigo-600"></i> Your checklist
+            </div>
+            <ul class="mt-4 space-y-3 text-slate-700 text-sm" role="list">
+              <li class="flex items-center gap-2 opacity-0 translate-y-1" data-reveal><i data-lucide="check-circle-2"
+                  class="h-5 w-5 text-emerald-600"></i>Proof of identity</li>
+              <li class="flex items-center gap-2 opacity-0 translate-y-1" data-reveal><i data-lucide="check-circle-2"
+                  class="h-5 w-5 text-emerald-600"></i>Name change (if applicable)</li>
+              <li class="flex items-center gap-2 opacity-0 translate-y-1" data-reveal><i data-lucide="check-circle-2"
+                  class="h-5 w-5 text-emerald-600"></i>Residence history</li>
+              <li class="flex items-center gap-2 opacity-0 translate-y-1" data-reveal><i data-lucide="check-circle-2"
+                  class="h-5 w-5 text-emerald-600"></i>Good character documents</li>
+              <li class="flex items-center gap-2 opacity-0 translate-y-1" data-reveal><i data-lucide="check-circle-2"
+                  class="h-5 w-5 text-emerald-600"></i>Passport photo</li>
+            </ul>
+            <!-- CHIP: Progress -->
+            <div
+              class="mt-5 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-sky-50 text-sky-800 text-xs font-semibold ring-1 ring-sky-200">
+              <span class="h-2 w-2 rounded-full bg-sky-500"></span> 3 of 7 complete
+            </div>
+          </div>
+
+          <!-- CARD: Add documents -->
+          <div
+            class="absolute right-8 bottom-10 w-[38%] bg-white rounded-2xl shadow-xl ring-1 ring-indigo-100 p-5 transition duration-500 hover:-translate-y-2 z-40">
+            <div class="text-slate-800 font-semibold flex items-center gap-2">
+              <i data-lucide="upload-cloud" class="h-5 w-5 text-indigo-600"></i> Add documents
+            </div>
+            <div
+              class="mt-3 h-28 rounded-xl border border-dashed border-indigo-200 bg-indigo-50/40 flex items-center justify-center text-slate-600 text-sm">
+              Drag files here</div>
+            <div class="mt-4 flex items-center gap-2">
+              <span
+                class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100 text-slate-700 text-xs ring-1 ring-slate-200">
+                <i data-lucide="file-text" class="h-4 w-4"></i>Passport.pdf
+              </span>
+              <span
+                class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-emerald-50 text-emerald-700 text-[11px] ring-1 ring-emerald-200">
+                <i data-lucide="sparkles" class="h-3.5 w-3.5"></i>AI verified
+              </span>
+            </div>
+          </div>
+
+          <!-- CHIP: Reminder set -->
+          <div class="absolute right-8 top-8 z-40">
+            <div
+              class="bg-white/90 backdrop-blur rounded-xl shadow-lg ring-1 ring-indigo-100 px-4 py-3 text-sm text-slate-700">
+              <span class="inline-flex items-center gap-2 font-semibold">
+                <i data-lucide="bell" class="h-4 w-4 text-sky-600"></i> Reminder set
+              </span>
+              <div class="text-xs text-slate-500 mt-1">Police check due next week</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 2 RIGHT -->
+        <div class="xl:col-span-5">
+          <div class="flex items-center gap-2 text-slate-400 font-semibold text-lg mb-6">
+            <span class="text-slate-300">2.</span>
+            <div class="h-px flex-1 bg-slate-200/70"></div>
+          </div>
+          <h2 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900">Checklist &amp; uploads</h2>
+          <p class="mt-4 text-lg text-slate-600 leading-relaxed max-w-xl">Your personalized checklist is ready. Gather
+            identity, residence, and character documents while we keep an eye on quality and gaps.</p>
+          <ul class="mt-6 space-y-3 text-slate-700 text-base" role="list">
+            <li class="flex items-center gap-2"><i data-lucide="id-card" class="w-5 h-5 text-slate-700"></i>Identity,
+              residence, and name change docs</li>
+            <li class="flex items-center gap-2"><i data-lucide="scan-line" class="w-5 h-5 text-indigo-600"></i>AI checks
+              for expiry, consistency, translations</li>
+            <li class="flex items-center gap-2"><i data-lucide="bell" class="w-5 h-5 text-sky-600"></i>Smart reminders
+              to keep you moving</li>
+          </ul>
+          <div class="mt-8 text-base text-slate-600 max-w-md">Simple tasks, clear ticks, fewer do-overs.</div>
+        </div>
+      </div>
+
+      <script>
+        (() => {
+          const els = document.querySelectorAll('[data-reveal]');
+          if (!els.length) return;
+          const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+          const io = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+              if (e.isIntersecting) {
+                e.target.style.transition = reduce ? 'opacity .2s' : 'opacity .5s, transform .5s';
+                e.target.style.opacity = '1';
+                e.target.style.transform = 'translateY(0)';
+                io.unobserve(e.target);
+              }
+            });
+          }, { threshold: 0.2 });
+          els.forEach(el => io.observe(el));
+        })();
+      </script>
+
+      <!-- STEP 3 -->
+      <div class="grid grid-cols-1 xl:grid-cols-12 gap-10 items-center">
+        <!-- STEP 3 LEFT -->
+        <div class="xl:col-span-5">
+          <div class="flex items-center gap-2 text-slate-400 font-semibold text-lg mb-6">
+            <span class="text-slate-300">3.</span>
+            <div class="h-px flex-1 bg-slate-200/70"></div>
+          </div>
+          <h2 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900">Build your case</h2>
+          <p class="mt-4 text-lg text-slate-600 leading-relaxed max-w-xl">We assemble your evidence the way case
+            officers expect: identity, residence, character and travel. You’ll get a clear coverage score, timelines,
+            and any gaps to fix before submission.</p>
+          <ul class="mt-6 space-y-3 text-slate-700 text-base" role="list">
+            <li class="flex items-center gap-2"><i data-lucide="files" class="w-5 h-5 text-sky-700"></i>Evidence
+              organised into official sections</li>
+            <li class="flex items-center gap-2"><i data-lucide="gauge" class="w-5 h-5 text-emerald-600"></i>Coverage
+              score + risk flags to close gaps</li>
+            <li class="flex items-center gap-2"><i data-lucide="calendar-range"
+                class="w-5 h-5 text-violet-600"></i>Residency &amp; travel timeline auto-built</li>
+          </ul>
+          <div class="mt-8 text-base text-slate-600 max-w-md">This turns a pile of docs into a calm, review-ready case.
+          </div>
+        </div>
+
+        <!-- STEP 3 RIGHT -->
+        <div class="xl:col-span-7 relative h-[580px] -mr-10 xl:-mr-24 select-none overflow-hidden rounded-3xl">
+          <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-900 to-indigo-950">
+          </div>
+          <div aria-hidden="true" class="absolute inset-0 opacity-[0.22]"
+            style="background-image:linear-gradient(to right, rgba(255,255,255,.06) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,.06) 1px, transparent 1px);background-size:36px 36px">
+          </div>
+          <div aria-hidden="true" class="absolute inset-0"
+            style="background:radial-gradient(560px 320px at 55% 55%, rgba(99,102,241,.18), transparent 60%)"></div>
+
+          <svg class="absolute inset-0 pointer-events-none z-0" viewBox="0 0 1200 700" preserveAspectRatio="none"
+            aria-hidden="true">
+            <defs>
+              <linearGradient id="s3-line" x1="0" x2="1">
+                <stop offset="0" stop-color="#93c5fd" stop-opacity=".28"></stop>
+                <stop offset="1" stop-color="#a78bfa" stop-opacity=".28"></stop>
+              </linearGradient>
+            </defs>
+            <path d="M260,240 C480,260 740,250 970,230" fill="none" stroke="url(#s3-line)" stroke-width="2"
+              stroke-dasharray="4 8"></path>
+            <path d="M990,380 C860,440 700,470 560,500" fill="none" stroke="url(#s3-line)" stroke-width="2"
+              stroke-dasharray="4 8"></path>
+          </svg>
+
+          <!-- CARD: Identity (Birth certificate) -->
+          <div class="absolute left-8 top-10 w-[340px] z-10">
+            <div class="inline-flex items-center gap-2 mb-3">
+              <span
+                class="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-white/10 text-white/90 ring-1 ring-white/20">
+                <svg class="inline w-3.5 h-3.5 mr-1 -mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  aria-hidden="true">
+                  <rect x="3" y="5" width="18" height="14" rx="2" stroke-width="2"></rect>
+                  <circle cx="9" cy="12" r="2" stroke-width="2"></circle>
+                  <path d="M13 10h5M13 14h5" stroke-width="2"></path>
+                </svg>
+                Identity
+              </span>
+            </div>
+            <div class="relative overflow-hidden rounded-2xl shadow-2xl ring-1 ring-slate-200 bg-white">
+              <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-br from-sky-50 to-slate-50"></div>
+              <div aria-hidden="true" class="pointer-events-none">
+                <div class="absolute -right-10 -bottom-10 h-44 w-44 rounded-full border-2 border-sky-200/40"></div>
+                <div class="absolute -left-12 -top-12 h-40 w-40 rounded-full border border-sky-200/30"></div>
+              </div>
+              <div aria-hidden="true" class="absolute inset-0 opacity-20"
+                style="background-image:repeating-linear-gradient(0deg, #94a3b8 0, #94a3b8 1px, transparent 1px, transparent 8px), repeating-linear-gradient(90deg, #94a3b8 0, #94a3b8 1px, transparent 1px, transparent 10px)">
+              </div>
+              <div class="relative p-5">
+                <div class="flex items-center justify-between">
+                  <div class="text-[11px] tracking-[0.18em] font-semibold text-slate-600">BIRTH CERTIFICATE</div>
+                  <span
+                    class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-sky-100 text-sky-800 ring-1 ring-sky-200">
+                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                      aria-hidden="true">
+                      <path d="M12 2l2.09 6.26H20l-5 3.64 1.91 6.1L12 16.77 7.09 18l1.91-6.1-5-3.64h5.91L12 2z" />
+                    </svg>
+                    Gov issued
+                  </span>
+                </div>
+                <div class="mt-4 space-y-2.5">
+                  <div class="h-2.5 w-44 rounded bg-slate-300/60 blur-[0.5px]"></div>
+                  <div class="h-2.5 w-56 rounded bg-slate-300/50 blur-[0.5px]"></div>
+                  <div class="h-2.5 w-48 rounded bg-slate-300/50 blur-[0.5px]"></div>
+                  <div class="h-2.5 w-40 rounded bg-slate-300/50 blur-[0.5px]"></div>
+                  <div class="h-2.5 w-52 rounded bg-slate-300/50 blur-[0.5px]"></div>
+                </div>
+                <div
+                  class="mt-4 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 text-[11px] ring-1 ring-emerald-200">
+                  <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span> Matches details
+                </div>
+              </div>
+            </div>
+            <!-- LABEL: Person chip -->
+            <div
+              class="absolute right-3 -bottom-12 bg-amber-50 rounded-xl shadow-xl ring-1 ring-amber-200 p-3 w-[170px]">
+              <div class="flex items-center gap-3">
+                <img src="https://cdn-icons-png.flaticon.com/512/4140/4140047.png" alt="Jane Smith"
+                  class="h-10 w-10 rounded bg-slate-100 object-cover border border-slate-200" />
+                <div class="flex-1 text-[11px] text-amber-800">Jane Smith<br /><span class="text-amber-700/80">ID #QQ
+                    123456 C</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD: Residence (Utility bill) -->
+          <div class="absolute right-4 top-[80px] w-[360px] z-20">
+            <div class="inline-flex items-center gap-2 mb-3">
+              <span
+                class="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-white/10 text-white/90 ring-1 ring-white/20">
+                <svg class="inline w-3.5 h-3.5 mr-1 -mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  aria-hidden="true">
+                  <path d="m3 12 9-8 9 8" stroke-width="2"></path>
+                  <path d="M9 22V12h6v10" stroke-width="2"></path>
+                </svg>
+                Residence
+              </span>
+            </div>
+            <div class="relative rounded-2xl shadow-2xl ring-1 ring-slate-200 bg-white p-5">
+              <div aria-hidden="true" class="absolute inset-0 rounded-2xl overflow-hidden pointer-events-none -z-10">
+                <div class="absolute inset-0 bg-gradient-to-br from-teal-50 to-emerald-50"></div>
+                <div class="absolute inset-0 opacity-15"
+                  style="background-image:repeating-linear-gradient(0deg, rgba(13,148,136,.35) 0 1px, transparent 1px 12px)">
+                </div>
+                <div class="absolute -right-12 -bottom-14 h-52 w-52 rounded-full border-2 border-teal-300/30"></div>
+                <div class="absolute -left-10 -top-10 h-40 w-40 rounded-full border-teal-300/20 border"></div>
+              </div>
+              <div class="flex items-center justify-between">
+                <div class="text-[11px] tracking-[0.16em] font-semibold text-slate-700">UTILITY BILL</div>
+                <span
+                  class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-teal-100 text-teal-900 ring-1 ring-teal-200">
+                  <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    aria-hidden="true">
+                    <path d="M3 6h18M3 12h18M3 18h18"></path>
+                  </svg>
+                  Statement
+                </span>
+              </div>
+              <div class="mt-4 space-y-2.5">
+                <div class="h-2.5 w-56 rounded bg-slate-300/55 blur-[0.6px]"></div>
+                <div class="h-2.5 w-44 rounded bg-slate-300/45 blur-[0.6px]"></div>
+                <div class="h-2.5 w-52 rounded bg-slate-300/45 blur-[0.6px]"></div>
+                <div class="h-2.5 w-40 rounded bg-slate-300/45 blur-[0.6px]"></div>
+              </div>
+              <div class="mt-4 h-3 w-44 rounded bg-[repeating-linear-gradient(90deg,#99f6e4_0_2px,#e2e8f0_2px_6px)]">
+              </div>
+              <div
+                class="mt-3 inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-teal-50 text-teal-800 text-[11px] ring-1 ring-teal-200">
+                Address verified • 2018–2024</div>
+              <div
+                class="absolute left-4 -bottom-9 bg-amber-50 rounded-xl shadow-xl ring-1 ring-amber-200 px-3 py-2 z-10">
+                <div class="text-[11px] text-amber-800">12 Sample St</div>
+                <div class="text-[10px] text-amber-700/80">2018–2024</div>
+              </div>
+              <div class="absolute right-4 -bottom-10 bg-white rounded-lg shadow ring-1 ring-slate-200 px-3 py-2 z-10">
+                <div class="flex items-center gap-2 text-[11px] text-slate-600">
+                  <span class="inline-block h-1.5 w-1.5 bg-teal-500 rounded-full"></span>2018
+                  <div class="h-[2px] w-20 bg-slate-200 rounded"></div>
+                  <span class="inline-block h-1.5 w-1.5 bg-teal-500 rounded-full"></span>2024
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD: Travel (SYD → DXB) -->
+          <div class="absolute right-56 bottom-[75px] w-[460px] z-30">
+            <div class="inline-flex items-center gap-2 mb-3">
+              <span
+                class="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-white/10 text-white/90 ring-1 ring-white/20">
+                <svg class="inline w-3.5 h-3.5 mr-1 -mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  aria-hidden="true">
+                  <path d="M2.5 19l19-7-19-7 5 7-5 7z" stroke-width="2" stroke-linejoin="round"></path>
+                </svg>
+                Travel
+              </span>
+            </div>
+            <div class="relative bg-white rounded-2xl shadow-2xl ring-1 ring-slate-200 px-5 py-4">
+              <div class="flex items-center justify-between text-slate-700">
+                <div class="text-xl font-bold tracking-wide">SYD</div>
+                <div class="h-[2px] w-36 bg-slate-200 rounded"></div>
+                <div class="text-xl font-bold tracking-wide">DXB</div>
+              </div>
+              <div class="mt-2 text-[11px] text-slate-600">Seat 12A • Gate C3 • 14 Jun 2019</div>
+              <div class="absolute left-0 -bottom-10">
+                <div
+                  class="px-4 py-2 text-[10px] font-semibold tracking-wider rounded-full border border-dashed border-slate-300/70 text-slate-300/90">
+                  ENTRY 2019</div>
+              </div>
+              <div class="absolute right-2 -top-8">
+                <div
+                  class="px-4 py-2 text-[10px] font-semibold tracking-wider rounded-full border border-dashed border-slate-300/70 text-slate-300/90">
+                  EXIT 2019</div>
+              </div>
+              <div
+                class="absolute right-2 -bottom-8 inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-amber-50 text-amber-800 text-[11px] ring-1 ring-amber-200">
+                1 short trip needs proof</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 4 -->
+      <div class="grid grid-cols-1 xl:grid-cols-12 gap-10 items-center">
+        <!-- STEP 4 LEFT -->
+        <div class="xl:col-span-7 relative h-[520px] -ml-10 xl:-ml-24 select-none overflow-hidden rounded-3xl">
+          <div aria-hidden="true" class="absolute inset-0 bg-white"></div>
+          <div aria-hidden="true" class="absolute inset-0 opacity-[.25]"
+            style="background-image:linear-gradient(#e5e7eb 1px, transparent 1px);background-size:100% 34px"></div>
+
+          <!-- CARD: Case file timeline -->
+          <div class="absolute left-8 top-10 w-[70%] bg-white rounded-2xl shadow-2xl ring-1 ring-slate-200 p-6 z-10">
+            <div class="flex items-center justify-between">
+              <div class="text-slate-800 font-semibold flex items-center gap-2">
+                <i data-lucide="folder" class="h-5 w-5"></i> Case file
+              </div>
+              <div class="flex items-center gap-2">
+                <span
+                  class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 text-[11px] font-semibold ring-1 ring-emerald-200">
+                  <i data-lucide="shield-check" class="h-3.5 w-3.5"></i> Ready to lodge
+                </span>
+                <span
+                  class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-50 text-slate-700 text-[11px] font-semibold ring-1 ring-slate-200">
+                  <i data-lucide="check-circle-2" class="h-3.5 w-3.5 text-emerald-600"></i> 100% checklist
+                </span>
+              </div>
+            </div>
+            <div class="mt-4 rounded-xl border border-slate-200 bg-slate-50/60 p-4">
+              <div class="text-sm text-slate-700"><span class="font-semibold">Form 1300t</span> • Citizenship by
+                conferral</div>
+              <div class="mt-2 h-2 w-40 rounded bg-slate-200"></div>
+              <div class="mt-1 h-2 w-56 rounded bg-slate-200"></div>
+              <div class="mt-1 h-2 w-48 rounded bg-slate-200"></div>
+            </div>
+            <!-- TIMELINE: Lodgement → Processing → Decision -->
+            <div class="mt-5">
+              <div class="relative h-10">
+                <div class="absolute left-6 right-6 top-1/2 -translate-y-1/2 h-[3px] bg-slate-200 rounded-full"></div>
+                <div class="absolute left-4 top-1/2 -translate-y-1/2 flex flex-col items-center">
+                  <span
+                    class="flex h-7 w-7 items-center justify-center rounded-full bg-white ring-2 ring-emerald-400 pulse">
+                    <i data-lucide="arrow-right-circle" class="h-5 w-5 text-emerald-600"></i>
+                  </span>
+                  <span class="mt-1 text-[11px] text-slate-600 font-medium">Lodgement</span>
+                </div>
+                <div class="absolute left-1/2 -ml-3 top-1/2 -translate-y-1/2 flex flex-col items-center">
+                  <span class="flex h-7 w-7 items-center justify-center rounded-full bg-slate-50 ring-2 ring-slate-200">
+                    <i data-lucide="loader-2" class="h-5 w-5 text-slate-500 animate-spin-slow"></i>
+                  </span>
+                  <span class="mt-1 text-[11px] text-slate-600 font-medium">Processing</span>
+                </div>
+                <div class="absolute right-4 top-1/2 -translate-y-1/2 flex flex-col items-center">
+                  <span class="flex h-7 w-7 items-center justify-center rounded-full bg-slate-50 ring-2 ring-slate-200">
+                    <i data-lucide="file-check-2" class="h-5 w-5 text-slate-600"></i>
+                  </span>
+                  <span class="mt-1 text-[11px] text-slate-600 font-medium">Decision</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD: Evidence checklist -->
+          <div
+            class="absolute left-[48%] top-[52%] w-[38%] bg-white rounded-2xl shadow-xl ring-1 ring-slate-200 p-5 z-10">
+            <div class="text-slate-800 font-semibold flex items-center gap-2">
+              <i data-lucide="files" class="h-5 w-5 text-indigo-600"></i> Evidence checklist
+            </div>
+            <div class="mt-3 grid grid-cols-1 gap-2 text-[13px] text-slate-700">
+              <div class="flex items-center gap-2 rounded-lg border border-slate-200 px-2.5 py-2">
+                <i data-lucide="calendar-range" class="w-4 h-4 text-indigo-600"></i> Residence &amp; absences
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600 ml-auto"></i>
+              </div>
+              <div class="flex items-center gap-2 rounded-lg border border-slate-200 px-2.5 py-2">
+                <i data-lucide="plane" class="w-4 h-4 text-indigo-600"></i> Travel history
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600 ml-auto"></i>
+              </div>
+              <div class="flex items-center gap-2 rounded-lg border border-slate-200 px-2.5 py-2">
+                <i data-lucide="id-card" class="w-4 h-4 text-indigo-600"></i> Identity &amp; name links
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600 ml-auto"></i>
+              </div>
+              <div class="flex items-center gap-2 rounded-lg border border-slate-200 px-2.5 py-2">
+                <i data-lucide="shield" class="w-4 h-4 text-indigo-600"></i> Overseas police checks
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600 ml-auto"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 4 RIGHT -->
+        <div class="xl:col-span-5">
+          <div class="flex items-center gap-2 text-slate-400 font-semibold text-lg mb-6">
+            <span class="text-slate-300">4.</span>
+            <div class="h-px flex-1 bg-slate-200/70"></div>
+          </div>
+          <h2 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900">Review and submit</h2>
+          <p class="mt-4 text-lg text-slate-600 leading-relaxed max-w-xl">Every requirement has been verified. All
+            documents are present and consistent. Here is your submission-ready packet.</p>
+          <ul class="mt-6 space-y-3 text-slate-700 text-base" role="list">
+            <li class="flex items-center gap-2"><i data-lucide="scan-line"
+                class="w-5 h-5 text-emerald-600"></i>Residence and absences confirmed</li>
+            <li class="flex items-center gap-2"><i data-lucide="plane" class="w-5 h-5 text-indigo-600"></i>Travel
+              history reconciled</li>
+            <li class="flex items-center gap-2"><i data-lucide="id-card" class="w-5 h-5 text-slate-700"></i>Identity and
+              name links clear</li>
+            <li class="flex items-center gap-2"><i data-lucide="shield" class="w-5 h-5 text-violet-600"></i>Character
+              checks incl. overseas police where required</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- STEP 5 -->
+      <div class="grid grid-cols-1 xl:grid-cols-12 gap-10 items-center">
+        <!-- STEP 5 LEFT -->
+        <div class="xl:col-span-5">
+          <div class="flex items-center gap-2 text-slate-400 font-semibold text-lg mb-6">
+            <span class="text-slate-300">5.</span>
+            <div class="h-px flex-1 bg-slate-200/70"></div>
+          </div>
+          <h2 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900">After you submit</h2>
+          <p class="mt-4 text-lg text-slate-600 leading-relaxed max-w-xl">Respond quickly to department requests, prep
+            for the citizenship test, and complete any police certificates if asked—while tracking your own next steps
+            in one place.</p>
+          <ul class="mt-6 space-y-3 text-slate-700 text-base" role="list">
+            <li class="flex items-center gap-2"><i data-lucide="mail" class="w-5 h-5 text-sky-600"></i>Requests inbox
+              with due dates and draft replies</li>
+            <li class="flex items-center gap-2"><i data-lucide="flag" class="w-5 h-5 text-emerald-600"></i>Citizenship
+              test prep kit and reminders</li>
+            <li class="flex items-center gap-2"><i data-lucide="shield-check" class="w-5 h-5 text-amber-600"></i>Police
+              checks guidance and country templates</li>
+          </ul>
+        </div>
+
+        <!-- STEP 5 RIGHT -->
+        <div class="pointer-events-none absolute inset-y-0 left-1/2 right-0 -z-10" aria-hidden="true">
+          <div class="absolute inset-0 bg-gradient-to-br from-indigo-50 via-sky-50 to-emerald-50"></div>
+          <div class="absolute inset-0 opacity-[.10]"
+            style="background-image:linear-gradient(0deg, rgba(2,6,23,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(2,6,23,.06) 1px, transparent 1px);background-size:32px 32px">
+          </div>
+          <div class="absolute -left-24 top-16 w-72 h-72 rounded-full blur-2xl bg-sky-200/40"></div>
+          <div class="absolute right-10 bottom-8 w-80 h-80 rounded-full blur-2xl bg-emerald-200/40"></div>
+        </div>
+
+        <!-- STEP 5 RIGHT: Columns -->
+        <div class="xl:col-span-7 relative h-[560px] -mr-10 xl:-mr-24 select-none overflow-visible">
+          <div class="absolute inset-0 p-6 sm:p-8">
+            <div class="xl:col-span-7 relative h-[560px] -mr-10 xl:-mr-24 select-none overflow-hidden rounded-3xl">
+              <div aria-hidden="true"
+                class="absolute inset-0 bg-gradient-to-br from-fuchsia-100 via-sky-50 to-emerald-50"></div>
+              <div aria-hidden="true" class="absolute inset-0 opacity-[.08]"
+                style="background-image:linear-gradient(90deg,rgba(2,6,23,.06) 1px,transparent 1px), linear-gradient(0deg,rgba(2,6,23,.06) 1px,transparent 1px);background-size:32px 32px">
+              </div>
+              <div class="absolute inset-0 p-6 sm:p-8">
+                <div class="grid grid-cols-1 md:[grid-template-columns:1.2fr_1fr] gap-6 h-full">
+                  <!-- COLUMN A -->
+                  <div class="relative h-full pl-10">
+                    <div aria-hidden="true" class="absolute left-3 top-0 bottom-0 w-[3px] bg-slate-300 rounded-full">
+                    </div>
+                    <span aria-hidden="true"
+                      class="absolute left-1.5 top-8 h-4 w-4 rounded-full bg-sky-500 ring-4 ring-white"></span>
+
+                    <!-- CARD: Requests inbox -->
+                    <div class="relative bg-white rounded-2xl shadow-2xl ring-1 ring-slate-200 p-6 w-[350px]">
+                      <div aria-hidden="true" class="absolute inset-x-0 -top-px h-1 rounded-t-2xl bg-sky-500"></div>
+                      <div class="text-slate-900 font-semibold flex items-center gap-2">
+                        <i data-lucide="mail" class="h-5 w-5 text-sky-600"></i> Requests inbox
+                      </div>
+                      <div class="mt-4 space-y-3 text-[13px] text-slate-700">
+                        <div class="rounded-xl border border-slate-200 p-3">
+                          <div class="flex items-center justify-between">
+                            <div class="font-medium">Provide police certificates</div>
+                            <span
+                              class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] bg-amber-50 text-amber-800 ring-1 ring-amber-200">
+                              <i data-lucide="alert-circle" class="h-3.5 w-3.5"></i>Requested
+                            </span>
+                          </div>
+                          <div class="mt-1 text-slate-500">You spent 90+ days in a country and 12+ months overseas since
+                            age 18. Upload the certificate and a certified translation if not in English.</div>
+                          <div class="mt-2 flex flex-wrap gap-2">
+                            <span
+                              class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-sky-50 text-sky-800 text-[11px] ring-1 ring-sky-200">
+                              <i data-lucide="file-text" class="h-3.5 w-3.5"></i>Country steps
+                            </span>
+                            <span
+                              class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-slate-50 text-slate-700 text-[11px] ring-1 ring-slate-200">
+                              <i data-lucide="download" class="h-3.5 w-3.5"></i>Cover letter template
+                            </span>
+                          </div>
+                        </div>
+                        <div class="rounded-xl border border-slate-200 p-3">
+                          <div class="flex items-center justify-between">
+                            <div class="font-medium">Confirm travel absences</div>
+                            <span
+                              class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] bg-amber-50 text-amber-800 ring-1 ring-amber-200">
+                              <i data-lucide="alert-circle" class="h-3.5 w-3.5"></i>Requested
+                            </span>
+                          </div>
+                          <div class="mt-1 text-slate-500">Provide international movement records or evidence for trips
+                            where dates are uncertain.</div>
+                          <div class="mt-2 flex flex-wrap gap-2">
+                            <span
+                              class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-sky-50 text-sky-800 text-[11px] ring-1 ring-sky-200">
+                              <i data-lucide="files" class="h-3.5 w-3.5"></i>Add tickets
+                            </span>
+                            <span
+                              class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-slate-50 text-slate-700 text-[11px] ring-1 ring-slate-200">
+                              <i data-lucide="wand-2" class="h-3.5 w-3.5"></i>Build from timeline
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- COLUMN B -->
+                  <div class="relative h-full pl-10 flex flex-col gap-6">
+                    <div aria-hidden="true" class="absolute left-3 top-0 bottom-0 w-[3px] bg-slate-300 rounded-full">
+                    </div>
+                    <span class="absolute left-1.5 top-8 h-4 w-4 rounded-full bg-emerald-500 ring-4 ring-white"
+                      aria-hidden="true"></span>
+                    <span class="absolute left-1.5 top-[calc(60%)] h-4 w-4 rounded-full bg-amber-500 ring-4 ring-white"
+                      aria-hidden="true"></span>
+
+                    <!-- CARD: Citizenship test prep -->
+                    <div class="relative bg-white rounded-2xl shadow-2xl ring-1 ring-slate-200 p-6">
+                      <div aria-hidden="true" class="absolute inset-x-0 -top-px h-1 rounded-t-2xl bg-emerald-500"></div>
+                      <div class="text-slate-900 font-semibold flex items-center gap-2">
+                        <i data-lucide="flag" class="h-5 w-5 text-emerald-600"></i> Citizenship test prep
+                      </div>
+                      <div class="mt-4 grid grid-cols-2 gap-3 text-[13px] text-slate-700">
+                        <div class="rounded-lg border border-slate-200 p-3">
+                          <div class="text-slate-500 text-[10px] uppercase">Practice</div>
+                          100 sample questions
+                        </div>
+                        <div class="rounded-lg border border-slate-200 p-3">
+                          <div class="text-slate-500 text-[10px] uppercase">Reminders</div>
+                          Study schedule
+                        </div>
+                        <div class="col-span-2 rounded-lg border border-slate-200 p-3">
+                          <div class="text-slate-500 text-[10px] uppercase">Bring</div>
+                          Photo ID and appointment letter
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- CARD: Overseas police certificates -->
+                    <div class="relative bg-white rounded-2xl shadow-2xl ring-1 ring-slate-200 p-6">
+                      <div aria-hidden="true" class="absolute inset-x-0 -top-px h-1 rounded-t-2xl bg-amber-500"></div>
+                      <div class="text-slate-900 font-semibold flex items-center gap-2 whitespace-nowrap">
+                        <i data-lucide="shield-check" class="h-5 w-5 text-amber-600"></i> Overseas police certificates
+                      </div>
+                      <ul class="mt-3 space-y-2 text-[13px] text-slate-700" role="list">
+                        <li class="flex items-center gap-2"><i data-lucide="file-text"
+                            class="h-4 w-4 text-amber-600"></i>Country steps and fees</li>
+                        <li class="flex items-center gap-2"><i data-lucide="download"
+                            class="h-4 w-4 text-amber-600"></i>Cover-letter templates</li>
+                        <li class="flex items-center gap-2"><i data-lucide="globe"
+                            class="h-4 w-4 text-amber-600"></i>Embassy links</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER: The MiraVisa Difference -->
+  <section class="bg-white">
+    <div class="mx-auto max-w-screen-xl px-5 py-20 text-black">
+      <h3 class="text-3xl font-extrabold text-center">The MiraVisa Difference</h3>
+      <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-xl text-center">
+          <i data-lucide="lock" class="w-6 h-6 mx-auto text-emerald-600"></i>
+          <div class="mt-2 font-semibold">Secure</div>
+          <p class="text-sm text-slate-600">Encrypted files and audit history.</p>
+        </div>
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-xl text-center">
+          <i data-lucide="gauge" class="w-6 h-6 mx-auto text-blue-600"></i>
+          <div class="mt-2 font-semibold">Fast</div>
+          <p class="text-sm text-slate-600">Instant checks, fewer back-and-forths.</p>
+        </div>
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-xl text-center">
+          <i data-lucide="sparkles" class="w-6 h-6 mx-auto text-violet-600"></i>
+          <div class="mt-2 font-semibold">Smart</div>
+          <p class="text-sm text-slate-600">Coverage scoring &amp; risk flags.</p>
+        </div>
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-xl text-center">
+          <i data-lucide="users" class="w-6 h-6 mx-auto text-amber-600"></i>
+          <div class="mt-2 font-semibold">Experts on call</div>
+          <p class="text-sm text-slate-600">Escalate only when needed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER: CTA -->
+  <section class="bg-black text-white">
+    <div class="mx-auto max-w-screen-xl px-5 py-16 text-center">
+      <h3 class="text-4xl font-extrabold">Let’s start your first case</h3>
+      <a href="index.html#start"
+        class="mt-6 inline-flex items-center gap-2 rounded-full bg-white text-black px-6 py-3 font-semibold">Check
+        eligibility to start</a>
+    </div>
+  </section>
+
+  <script>if (window.lucide) lucide.createIcons();</script>
+</body>
+
+</html>
